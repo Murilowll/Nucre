@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const bio = thumb.getAttribute('data-bio');
                 const image = thumb.getAttribute('data-image');
 
+                // Atualiza a classe 'active' para a miniatura selecionada
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+
                 // Adiciona as classes para a animação de esconder (fade-out)
                 featuredImage.classList.add('fade-out-down');
                 if (infoContainer) infoContainer.classList.add('fade-out-down');
@@ -256,4 +260,29 @@ document.addEventListener("DOMContentLoaded", () => {
         // Garante centralização ao redimensionar a tela
         window.addEventListener('resize', centerImage);
     }
+
+    // =========================================
+    // Lógica do Menu Mobile e Smart Header
+    // =========================================
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const header = document.querySelector('.main-header');
+    
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                toggle.parentElement.classList.toggle('active');
+            }
+        });
+    });
+
 });
