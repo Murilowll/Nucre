@@ -68,70 +68,152 @@ document.addEventListener("DOMContentLoaded", () => {
     const servicesData = {
         'fisioterapia-esportiva': {
             title: 'Fisioterapia Esportiva',
-            description: 'Focada na prevenção de lesões e na recuperação acelerada de atletas amadores e profissionais. Utilizamos protocolos avançados para devolver você ao esporte com o máximo de performance e segurança.',
+            description: 'A Fisioterapia Esportiva tem como principal objetivo reabilitar e prevenir lesões em atletas e praticantes de exercícios físicos. O foco de nossos profissionais está concentrado em proporcionar o retorno do indivíduo ao esporte o mais rápido possível. Por meio de análise do quadro de cada paciente, é possível elaborar uma técnica especializada e personalizada para cuidar e tratar cada caso. A fisioterapia esportiva prepara atletas especificamente para competições, previne lesões e dores em pessoas que praticam atividades físicas e recupera as contusões ocasionadas pelo esporte.',
             image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Retorno rápido ao esporte', 'Aumento de força e estabilidade articular', 'Correção de desequilíbrios musculares', 'Prevenção de recidivas e novas lesões'],
+            benefits: [
+                'Acelera o tempo de recuperação dos músculos, ligamentos, tendões e outras partes do corpo',
+                'Reduz significativamente a dor e processos inflamatórios',
+                'Garante que o corpo se recupere e cicatrize da maneira correta',
+                'Previne futuras lesões físicas e otimiza a performance'
+            ],
             faqs: [
-                { q: 'Preciso ser atleta profissional?', a: 'Não! Atendemos desde atletas de fim de semana até profissionais de alto rendimento.' },
-                { q: 'Qual a duração do tratamento?', a: 'O tempo varia de acordo com a lesão, mas nosso foco é sempre garantir uma alta segura no menor tempo possível.' }
+                { q: 'Para quem é indicada?', a: 'Para atletas e praticantes de atividades físicas de todas as idades que desejam voltar a praticar esportes após uma lesão, ou pessoas que querem iniciar exercícios físicos com segurança.' },
+                { q: 'Quais tipos de casos vocês tratam?', a: 'Atuamos em disfunções traumato-ortopédicas e reumatológicas, pós-operatórios, lesões musculares e ligamentares, hérnias, fraturas, entre outros.' }
             ]
         },
         'qualidade-de-vida': {
-            title: 'Qualidade de vida',
-            description: 'Programas de fisioterapia voltados para o bem-estar diário, alívio de dores crônicas e melhora da postura. Permite que você viva seus dias com muito mais disposição e sem limitações.',
+            title: 'Qualidade de Vida',
+            description: 'Qualidade de vida e saúde andam juntas. Contamos com técnicas e modalidades que dão suporte e aptidão para as pessoas realizarem suas atividades diárias sem limitações. A Fisioterapia é uma ótima aliada para pessoas da terceira idade, melhorando a disposição para atividades físicas, locomoção e evitando a incidência de problemas ligados ao corpo e aos movimentos. Com nosso plano individual e personalizado, os idosos podem continuar exercendo suas atividades diárias e físicas sem interrupções.',
             image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Alívio imediato de tensões diárias', 'Melhora significativa na qualidade do sono', 'Mais flexibilidade para tarefas do dia a dia', 'Redução do estresse corporal'],
+            benefits: [
+                'Aumento expressivo da força muscular e óssea',
+                'Melhora significativa da flexibilidade, equilíbrio e coordenação motora',
+                'Prevenção do risco de quedas e de complicações respiratórias',
+                'Melhoria do desempenho funcional, autonomia e bem-estar psicológico'
+            ],
             faqs: [
-                { q: 'Como funciona a primeira avaliação?', a: 'Fazemos uma análise completa da sua postura, mobilidade e rotina para criar um plano sob medida para suas necessidades.' },
-                { q: 'Pode ajudar com dores de trabalho (home office)?', a: 'Com certeza! Tratamos muito a ergonomia e as dores causadas por longos períodos na mesma posição.' }
+                { q: 'Como é elaborado o plano de tratamento?', a: 'O plano envolve fortalecimento de músculos chave para atividades diárias, uso de terapias manuais para saúde articular, treinos de equilíbrio e analgesia de pontos dolorosos.' },
+                { q: 'É indicado apenas para idosos?', a: 'Embora seja de extrema relevância para a terceira idade visando sua autonomia, é altamente indicado para qualquer pessoa que sinta limitações físicas em sua rotina.' }
             ]
         },
         'prevencao-de-lesoes': {
-            title: 'Prevenção de lesões',
-            description: 'Avaliação biomecânica completa e prescrição de exercícios específicos para corrigir desequilíbrios musculares antes que eles se transformem em lesões, garantindo a sua longevidade física.',
+            title: 'Prevenção de Lesões',
+            description: 'Qualquer tipo de lesão, além de causar um grande desconforto para o paciente, pode deixar a pessoa afastada de suas atividades diárias por semanas ou meses, impactando a saúde física e emocional. A prevenção é a melhor forma de manter-se ativo e saudável por muito mais tempo. O trabalho de prevenção de lesões do NUCRE se inicia por meio de uma avaliação terapêutica completa e com uma elaboração de exercícios específicos para as principais articulações e grupos musculares exigidos na sua rotina.',
             image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Mapeamento precoce de riscos', 'Economia de tempo e dinheiro com tratamentos futuros', 'Melhora da consciência corporal', 'Longevidade na prática esportiva'],
+            benefits: [
+                'Relaxa profundamente a musculatura e alivia pontos de tensão',
+                'Aumenta a flexibilidade, a mobilidade e a disposição geral',
+                'Melhora dores preexistentes nas articulações e músculos',
+                'Auxilia no equilíbrio emocional e combate doenças como hipertensão e tendinites'
+            ],
             faqs: [
-                { q: 'Quando devo procurar esse serviço?', a: 'O momento ideal é antes de iniciar uma nova atividade física intensa ou caso perceba desconfortos leves constantes.' }
+                { q: 'Quem deve fazer prevenção de lesões?', a: 'É indicada para todas as pessoas, sejam praticantes de esportes que desejam melhorar seus movimentos ou idosos que buscam reduzir a incidência de quedas.' },
+                { q: 'Como funciona o programa de exercícios?', a: 'Iniciamos com uma avaliação completa e prescrevemos exercícios específicos que visam corrigir desequilíbrios, fortalecer áreas de sobrecarga e relaxar a musculatura.' }
             ]
         },
         'reabilitacao-com-eletroterapia': {
-            title: 'Reabilitação com eletroterapia',
-            description: 'Uso de recursos eletrofísicos modernos como laser, ultrassom e correntes analgésicas para acelerar a cicatrização de tecidos, reduzir inflamações severas e promover alívio imediato da dor.',
+            title: 'Reabilitação com Eletroterapia',
+            description: 'A Eletroterapia atua principalmente no tratamento de dores musculares crônicas, atrofia muscular, recuperação de massa muscular e da função dos nervos, lombalgia, tendinite, fibrose e processos inflamatórios, além de reduzir o ácido lático em 25% através de estímulos elétricos. No NUCRE, utilizamos o Compex Wireless, um equipamento suíço de ponta sem fio que estimula diretamente o neurônio motor para acelerar o ganho de força e a cicatrização dos tecidos de forma extremamente eficiente.',
             image: 'https://images.unsplash.com/photo-1588286840104-b44d137ba478?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Aceleração da cicatrização celular', 'Efeito analgésico rápido e eficiente', 'Redução expressiva de edemas (inchaços)', 'Abordagem totalmente não invasiva'],
+            benefits: [
+                'Fortalecimento muscular e ativação motora acelerada',
+                'Redução rápida de dores agudas e crônicas',
+                'Aceleração da regeneração celular e redução de inchaços',
+                'Redução do acúmulo de ácido lático pós-esforço'
+            ],
             faqs: [
-                { q: 'O tratamento com eletroterapia dói?', a: 'Não. Pelo contrário, os equipamentos são ajustados para proporcionar muito conforto e alívio durante a aplicação.' },
-                { q: 'Existem contraindicações?', a: 'Gestantes e portadores de marcapasso passam por avaliações específicas, mas em geral é um tratamento muito seguro.' }
+                { q: 'Em quais casos a eletroterapia é indicada?', a: 'É indicada para pós-operatórios (especialmente de joelho para estimular o quadríceps), fraqueza muscular, fadiga crônica, luxações e traumas ósseos ou articulares.' },
+                { q: 'Existem contraindicações?', a: 'Sim. É contraindicada para gestantes, portadores de marca-passo, próteses metálicas no local, trombose venosa, feridas abertas ou alterações de sensibilidade térmica.' }
             ]
         },
         'reabilitacao-com-instrumentos': {
-            title: 'Reabilitação com instrumentos',
-            description: 'Aplicação de técnicas instrumentais modernas, como ventosaterapia, liberação miofascial instrumental e agulhamento a seco para soltar tensões profundas e melhorar a mobilidade articular.',
+            title: 'Reabilitação com Instrumentos',
+            description: 'A reabilitação com instrumentos utiliza ferramentas especializadas para realizar tratamentos profundos e direcionados nos tecidos moles, acelerando o reparo tecidual, liberando aderências miofasciais e estimulando o fluxo sanguíneo local. Essa modalidade é essencial para reabilitar restrições de movimento e aliviar dores persistentes através de técnicas de fisioterapia instrumental avançadas.',
             image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Liberação miofascial muito mais profunda', 'Estímulo ao fluxo sanguíneo na região afetada', 'Quebra de pontos gatilho (nódulos de tensão)', 'Restauração rápida da mobilidade'],
+            benefits: [
+                'Liberação miofascial profunda e restauração da fáscia muscular',
+                'Aumento da circulação e oxigenação sanguínea no local lesionado',
+                'Quebra de aderências teciduais e restauração rápida da mobilidade',
+                'Combate e liberação de pontos gatilho profundos'
+            ],
             faqs: [
-                { q: 'Ficam marcas na pele (como nas ventosas)?', a: 'Algumas técnicas podem deixar pequenas marcas temporárias e indolores, que tendem a sumir em poucos dias.' },
-                { q: 'O agulhamento a seco (dry needling) é igual acupuntura?', a: 'Embora use agulhas semelhantes, o dry needling atua de forma direta no ponto de tensão muscular para liberação imediata, diferente da abordagem sistêmica da acupuntura.' }
+                { q: 'Quais técnicas instrumentais são utilizadas?', a: 'O NUCRE conta com técnicas altamente consolidadas como Dry Needling (Agulhamento a seco), Miofibrólise Percutânea e Ventosaterapia.' },
+                { q: 'Como essas técnicas auxiliam na reabilitação?', a: 'Elas agem diretamente sobre as fibras musculares e tecidos fasciais rígidos que limitam o movimento, promovendo um relaxamento imediato e acelerando a cura natural.' }
             ]
         },
         'recovery': {
             title: 'Recovery',
-            description: 'Sessões projetadas para acelerar a recuperação pós-treino ou pós-prova. Utilizamos botas de compressão pneumática, crioterapia e massagem desportiva para eliminar a fadiga rapidamente e relaxar a musculatura.',
+            description: 'As botas pneumáticas por compressão (Recovery) são um excelente recurso para ajudar atletas na recuperação de lesões ou reabilitação de cirurgias. Através de compressão sequencial por ar comprimido em pernas, braços e quadris, o tratamento estimula o fluxo de sangue, remove metabólitos e acelebra drasticamente o restabelecimento da performance esportiva de alto nível.',
             image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Remoção rápida do ácido lático', 'Alívio da sensação de pernas pesadas e exaustas', 'Prevenção de síndromes de overtraining', 'Relaxamento profundo do corpo e da mente'],
+            benefits: [
+                'Estimulação profunda do retorno venoso e melhora da circulação',
+                'Redução de edemas e inchaços provocados por microlesões de treinos',
+                'Alívio imediato da fadiga, sensação de peso e dores musculares',
+                'Prevenção e eliminação de cãibras musculares dolorosas'
+            ],
             faqs: [
-                { q: 'Posso fazer a sessão logo após uma corrida?', a: 'Sim! É o momento ideal. Nossos equipamentos ajudam a reciclar as toxinas geradas pelo esforço rapidamente.' },
-                { q: 'Precisa marcar com antecedência?', a: 'Recomendamos o agendamento prévio, principalmente em épocas de grandes provas ou maratonas em São Paulo.' }
+                { q: 'Quem deve realizar o Recovery?', a: 'Atletas profissionais ou amadores que possuem uma rotina árdua de treinos e competições, necessitando que o corpo se recupere rapidamente para a próxima sessão.' },
+                { q: 'O que está incluso no atendimento de Recovery?', a: 'No NUCRE, disponibilizamos um kit exclusivo composto por botas pneumáticas de compressão sequencial, pistola massageadora vibratória e ventosas para liberação.' }
             ]
         },
         'terapias-manuais': {
-            title: 'Terapias manuais',
-            description: 'Técnicas especializadas de mobilização e manipulação articular feitas com as mãos do fisioterapeuta. Foco em restaurar o movimento natural, diminuir a rigidez e tratar bloqueios de forma precisa.',
+            title: 'Terapias Manuais',
+            description: 'As Terapias Manuais consistem em técnicas especializadas de mobilização e manipulação articular aplicadas diretamente pelas mãos do fisioterapeuta. O objetivo principal é atuar sobre as disfunções articulares e fasciais, restaurando a mecânica natural do corpo, diminuindo a rigidez articular e promovendo o alívio imediato das dores agudas.',
             image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
-            benefits: ['Alinhamento articular imediato', 'Diminuição significativa da rigidez de movimento', 'Melhora imediata da dor aguda', 'Abordagem precisa, segura e confortável'],
+            benefits: [
+                'Alinhamento e posicionamento articular imediato',
+                'Redução drástica da rigidez e restauração da amplitude de movimento',
+                'Alívio e bloqueio de dores articulares agudas e crônicas',
+                'Abordagem segura, precisa e sem dependência de medicamentos'
+            ],
             faqs: [
-                { q: 'É a mesma coisa que quiropraxia?', a: 'Utilizamos uma gama vasta de técnicas manuais (osteopatia, Maitland, Mulligan) que podem incluir manipulações dependendo da sua necessidade clínica.' }
+                { q: 'Quais metodologias de terapia manual são aplicadas?', a: 'Nossos especialistas utilizam conceitos reconhecidos internacionalmente como Conceito Mulligan, Osteopatia clínica, Método Kabat e Método Maitland.' },
+                { q: 'Terapia manual é dolorosa?', a: 'Não. Os movimentos e pressões são dosados individualmente respeitando o limiar de dor de cada paciente, visando sempre o conforto e a melhora imediata.' }
+            ]
+        },
+        'osteopatia': {
+            title: 'Osteopatia',
+            description: 'A Osteopatia é uma abordagem terapêutica global que foca no tratamento do corpo de forma integrada, com ênfase especial na manipulação física do sistema musculoesquelético (músculos, ossos, articulações e ligamentos). O princípio fundamental da osteopatia é que a saúde de um indivíduo depende do alinhamento e do funcionamento harmônico de toda a sua estrutura corporal, permitindo que o organismo ative sua capacidade de autocura.',
+            image: 'assets/img/clinic-osteopatia.jpg',
+            benefits: [
+                'Alívio significativo de dores na coluna (cervicalgia, lombalgia, hérnia de disco)',
+                'Redução de dores de cabeça tensionais e enxaquecas',
+                'Melhora da mobilidade das articulações e alívio de lesões esportivas',
+                'Otimização do fluxo sanguíneo e melhora de distúrbios digestivos funcionais'
+            ],
+            faqs: [
+                { q: 'Quais são os pilares e princípios da Osteopatia?', a: 'Ela baseia-se em quatro princípios: o corpo como uma unidade integrada; a capacidade inata de autocura (desde que livre de bloqueios); a estrutura corporal governando a função de nervos e órgãos; e a livre circulação do sangue e fluidos para nutrição dos tecidos.' },
+                { q: 'Como é feito o tratamento?', a: 'O diagnóstico e o tratamento são feitos exclusivamente com as mãos. O osteopata utiliza manipulações articulares (para restaurar movimentos), técnicas musculares de alongamento, osteopatia craniana e osteopatia visceral (mobilizações suaves nos órgãos do abdômen).' }
+            ]
+        },
+        'maitland': {
+            title: 'Maitland',
+            description: 'O Método Maitland (ou Conceito Maitland) é uma das abordagens mais respeitadas e utilizadas na fisioterapia manual ortopédica no mundo. Criado na década de 1960, o método foca na avaliação minuciosa e no tratamento de disfunções da coluna vertebral e das articulações periféricas (braços e pernas) através de movimentos passivos oscilatórios graduados, promovendo alívio da dor e ganho de amplitude de movimento.',
+            image: 'assets/img/clinic-maitland.jpg',
+            benefits: [
+                'Alívio de dores agudas e crônicas na coluna vertebral e articulações',
+                'Ganho rápido de amplitude de movimento e alongamento de ligamentos rígidos',
+                'Tratamento eficaz para rigidez articular pós-imobilizações e pós-cirúrgicos',
+                'Otimização do alinhamento mecânico das articulações'
+            ],
+            faqs: [
+                { q: 'Como funcionam os graus de mobilização no Maitland?', a: 'As pressões manuais do terapeuta são divididas em 5 graus: Graus I e II (movimentos leves para alívio de dor e relaxamento), Graus III e IV (movimentos firmes no limite da articulação para ganhar mobilidade) e Grau V (manipulação rápida com estalo).' },
+                { q: 'Quais são as contraindicações do método?', a: 'Contraindicações absolutas incluem fraturas recentes, instabilidade articular grave, tumores ósseos, infecções na articulação, compressão da medula espinhal e osteoporose avançada.' }
+            ]
+        },
+        'mulligan': {
+            title: 'Mulligan',
+            description: 'O Método Mulligan baseia-se na premissa de que pequenas falhas no alinhamento de uma articulação (chamadas de falhas posicionais) após lesões ou desgastes podem causar dor crônica e limitação física. O método utiliza o conceito de Mobilização com Movimento (MWM): o fisioterapeuta aplica um deslizamento manual contínuo na articulação para corrigir esse microdesalinhamento enquanto o paciente realiza ativamente o movimento que antes era doloroso, eliminando a dor imediatamente.',
+            image: 'assets/img/clinic-mulligan.jpg',
+            benefits: [
+                'Restauração imediata e indolor da amplitude natural de movimento',
+                'Tratamento altamente eficaz para cervicalgias, lombalgias e torcicolos',
+                'Redução de sobrecarga nos tendões (epicondilites e tendinopatias)',
+                'Melhora rápida de limitações articulares pós-traumas e entorses'
+            ],
+            faqs: [
+                { q: 'O que é a regra do "PILL" no Mulligan?', a: 'Significa que a aplicação da técnica deve ser livre de dor (Pain-free), ter efeito imediato (Instant result) e ser duradoura (Long-lasting). Se o paciente relatar qualquer dor durante o movimento, a força e a direção do deslizamento manual são ajustadas.' },
+                { q: 'Quais são as principais contraindicações?', a: 'É contraindicado de forma absoluta em fraturas/luxações recentes, tumores ósseos, infecções ativas, osteoporose severa, instabilidade articular grave e sintomas de compressão da artéria vertebral.' }
             ]
         }
     };
@@ -259,6 +341,58 @@ document.addEventListener("DOMContentLoaded", () => {
         panoramaWrapper.addEventListener('mouseleave', centerImage);
         // Garante centralização ao redimensionar a tela
         window.addEventListener('resize', centerImage);
+    }
+
+    // =========================================
+    // Lógica do Carrossel do Hero
+    // =========================================
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-slider-dots .dot');
+    let currentHeroSlide = 0;
+    let heroSliderInterval;
+
+    if (heroSlides.length > 0 && heroDots.length > 0) {
+        function showHeroSlide(index) {
+            heroSlides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            heroDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            currentHeroSlide = index;
+        }
+
+        function nextHeroSlide() {
+            let nextIndex = (currentHeroSlide + 1) % heroSlides.length;
+            showHeroSlide(nextIndex);
+        }
+
+        function startHeroSlider() {
+            clearInterval(heroSliderInterval);
+            heroSliderInterval = setInterval(nextHeroSlide, 5000); // Muda a cada 5 segundos
+        }
+
+        // Evento de clique nos pontinhos (dots)
+        heroDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-slide'));
+                showHeroSlide(index);
+                startHeroSlider(); // Reseta o timer ao interagir
+            });
+        });
+
+        // Inicia o temporizador automático
+        startHeroSlider();
     }
 
     // =========================================
