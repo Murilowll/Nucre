@@ -215,6 +215,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 { q: 'O que é a regra do "PILL" no Mulligan?', a: 'Significa que a aplicação da técnica deve ser livre de dor (Pain-free), ter efeito imediato (Instant result) e ser duradoura (Long-lasting). Se o paciente relatar qualquer dor durante o movimento, a força e a direção do deslizamento manual são ajustadas.' },
                 { q: 'Quais são as principais contraindicações?', a: 'É contraindicado de forma absoluta em fraturas/luxações recentes, tumores ósseos, infecções ativas, osteoporose severa, instabilidade articular grave e sintomas de compressão da artéria vertebral.' }
             ]
+        },
+        'ventosaterapia': {
+            title: 'Ventosaterapia',
+            description: 'A Ventosaterapia é uma técnica milenar que utiliza copos (ventosas) sobre a pele para criar um vácuo. Esse vácuo gera uma força de sucção que puxa a pele e os tecidos musculares superficiais para dentro do copo. Embora seja muito associada à Medicina Tradicional Chinesa, a técnica também era usada no Antigo Egito e na Grécia Antiga. Hoje, ela é amplamente utilizada por fisioterapeutas, massoterapeutas e atletas para alívio de dores musculares e melhora da circulação.',
+            image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&q=80&w=800',
+            benefits: [
+                'Aumento da circulação local: A sucção dilata os vasos sanguíneos, trazendo mais sangue oxigenado e nutrientes para a área tratada.',
+                'Liberação miofascial: O vácuo ajuda a "descolar" e relaxar a fáscia (a capa de tecido conjuntivo que envolve os músculos), reduzindo a rigidez e a tensão.',
+                'Estímulo do sistema linfático: Ajuda na drenagem de fluidos e na eliminação de toxinas retidas nos tecidos musculares.',
+                'Melhora significativa da flexibilidade.'
+            ],
+            faqs: [
+                { q: 'Por que ficam manchas roxas na pele?', a: 'A sucção rompe pequenos vasos sanguíneos superficiais (capilares), causando um leve extravasamento de sangue sob a pele (equimose). Na visão da medicina ocidental, isso estimula uma resposta inflamatória local controlada, ativando o sistema de cura do próprio corpo. Na medicina chinesa, a cor indica o nível de estagnação de energia (Qi) e sangue. Elas costumam sumir sozinhas entre 3 e 7 dias.' },
+                { q: 'Quais são as principais indicações da ventosaterapia?', a: 'Dores nas costas (lombalgia, cervicalgia), tensão muscular e contraturas acumuladas por estresse ou treino pesado, recuperação muscular pós-exercício (recovery) e melhora na flexibilidade.' },
+                { q: 'Quais são as contraindicações?', a: 'A técnica é segura, mas não deve ser aplicada em pessoas com distúrbios de coagulação ou anticoagulantes, regiões com feridas abertas, dermatites, queimaduras ou varizes expostas, mulheres grávidas (especialmente no abdômen e lombar), e pessoas com febre ou infecções agudas.' }
+            ]
+        },
+        'miofibrolise-percutanea': {
+            title: 'Miofibrólise Percutânea',
+            description: 'A Miofibrólise Percutânea, popularmente conhecida como Crochetagem Mioaponeurótica ou Diafibrólise Percutânea, é uma técnica de terapia manual instrumentalizada. Desenvolvida na década de 1970 pelo fisioterapeuta sueco Kurt Ekman (colaborador do Dr. James Cyriax), ela surgiu da percepção de que os dedos humanos muitas vezes não alcançam a profundidade necessária ou não isolam com precisão as restrições entre as camadas de tecidos. Para isso, utilizam-se ganchos (crochets) de aço inoxidável ou poliamida com curvaturas e tamanhos variados.',
+            image: 'https://images.unsplash.com/photo-1662991040523-9585a0653d9e?auto=format&fit=crop&q=80&w=800',
+            benefits: [
+                'Efeito Mecânico: Rompe fibras colágenas desorganizadas e cicatrizes que grudam um músculo no outro, devolvendo o deslizamento fisiológico entre as fáscias.',
+                'Efeito Circulatório: Gera uma hiperemia profunda (aumento do fluxo sanguíneo local) e estimula a circulação linfática, acelerando a reabsorção de edemas.',
+                'Efeito Reflexo: Inibe a hiperatividade muscular e promove analgesia (alívio da dor) atuando sobre mecanorrecetores e pontos-gatilho (trigger points).'
+            ],
+            faqs: [
+                { q: 'Como a técnica funciona na prática?', a: 'O terapeuta realiza uma palpação precisa na pele para mapear as restrições de movimento e, em seguida, encaixa a curvatura do gancho nos septos intermusculares ou nas fáscias, realizando uma tração mecânica para quebrar aderências e restrições.' },
+                { q: 'Quais são as principais indicações?', a: 'Aderências e fibroses pós-traumáticas ou pós-cirúrgicas, síndromes por pinçamento (túnel do carpo, ciatalgias), tendinopatias e fascite plantar, síndrome da dor miofascial (pontos-gatilho) e disfunções esportivas.' },
+                { q: 'Quais são as contraindicações?', a: 'Não deve ser aplicada em casos de fragilidade cutânea (feridas, queimaduras), distúrbios de coagulação (uso de anticoagulantes, hemofilia, TVP), processos infecciosos ou inflamatórios agudos (febre, infecções locais), e tumores malignos ou suspeitas de câncer na região.' }
+            ]
         }
     };
 
