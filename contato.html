@@ -32,17 +32,25 @@
                             <li><a href="servicos.html#reabilitacao-com-eletroterapia">Reabilitação com eletroterapia</a></li>
                             <li><a href="servicos.html#reabilitacao-com-instrumentos">Reabilitação com instrumentos</a></li>
                             <li><a href="servicos.html#recovery">Recovery</a></li>
-                            <li><a href="servicos.html#terapias-manuais">Terapias manuais</a></li>
+                            <li><a href="servicos.html#ventosaterapia">Ventosaterapia</a></li>
+                            <li><a href="servicos.html#miofibrolise-percutanea">Miofibrólise percutânea</a></li>
+                            <li><a href="servicos.html#ozonioterapia">Ozonioterapia</a></li>
+                            <li><a href="servicos.html#dry-needling">Dry Needling</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" onclick="event.preventDefault();">Terapias Manuais ▾</a>
+                        <ul class="dropdown-menu">
                             <li><a href="servicos.html#osteopatia">Osteopatia</a></li>
                             <li><a href="servicos.html#maitland">Maitland</a></li>
                             <li><a href="servicos.html#mulligan">Mulligan</a></li>
-                            <li><a href="servicos.html#ventosaterapia">Ventosaterapia</a></li>
-                            <li><a href="servicos.html#miofibrolise-percutanea">Miofibrólise percutânea</a></li>
+                            <li><a href="servicos.html#kabat">Kabat</a></li>
+                            <li><a href="servicos.html#liberacoes-miofasciais">Liberações Miofasciais</a></li>
                         </ul>
                     </li>
                     <li><a href="equipe.html">Equipe Nucre</a></li>
                     <li><a href="contato.html">Contato</a></li>
-                    <li class="hide-mobile"><a href="contato.html" class="btn btn-primary" style="padding: 10px 24px;">Agendar Consulta</a></li>
+                    <li class="hide-mobile"><a href="contato.html" class="btn btn-primary" style="padding: 10px 24px;">Agendar Avaliação</a></li>
                 </ul>
             </nav>
         </div>
@@ -52,12 +60,12 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Como podemos ajudar você hoje?</h1>
-                <p>Agende sua avaliação, tire dúvidas sobre nossos tratamentos ou verifique a cobertura do seu plano de saúde. Estamos prontos para atender você.</p>
+                <p>Agende sua avaliação, tire dúvidas sobre nossos tratamentos ou conheça nosso atendimento domiciliar. Estamos prontos para atender você.</p>
                 
                 <div style="margin-top: 2rem;">
                     <h3 style="color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 0.5rem;">Fale pelo WhatsApp</h3>
                     <p style="margin-bottom: 1.5rem;">Atendimento rápido das 08h às 19h.</p>
-                    <a href="#" class="btn btn-primary">Iniciar Conversa no WhatsApp</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511973165620" target="_blank" class="btn btn-primary">Iniciar Conversa no WhatsApp</a>
                 </div>
 
                 <div style="margin-top: 3rem;">
@@ -65,7 +73,7 @@
                     <p style="color: var(--text-gray);">
                         Av. Indianópolis, 3145 - sala 3<br>
                         Planalto Paulista, São Paulo - SP - CEP 04063-006<br>
-                        <strong>Email:</strong> contato@nucre.com.br<br>
+                        <strong>Email:</strong> contato@nucrefisioterapia.com.br<br>
                         <strong>Telefone:</strong> (11) 3333-4444
                     </p>
                 </div>
@@ -73,11 +81,11 @@
             <div class="hero-image" style="box-shadow: none;">
                 <div style="padding: 3rem; background: white; border-radius: var(--border-radius-md); box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
                     <h2 style="font-size: 2rem; margin-bottom: 1rem;">Envie uma mensagem</h2>
-                    <form style="display: flex; flex-direction: column; gap: 1rem;" onsubmit="event.preventDefault();">
-                        <input type="text" placeholder="Seu nome completo" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%;">
-                        <input type="email" placeholder="Seu e-mail" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%;">
-                        <input type="tel" placeholder="Seu telefone" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%;">
-                        <textarea placeholder="Como podemos ajudar?" rows="4" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%; resize: none;"></textarea>
+                    <form action="https://formsubmit.co/contato@nucrefisioterapia.com.br" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" name="nome" placeholder="Seu nome completo" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%;">
+                        <input type="email" name="email" placeholder="Seu e-mail" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%;">
+                        <input type="tel" name="telefone" placeholder="Seu telefone" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%;">
+                        <textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%; resize: none;"></textarea>
                         <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;">Enviar Mensagem</button>
                     </form>
                 </div>

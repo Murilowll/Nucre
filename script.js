@@ -246,6 +246,68 @@ document.addEventListener("DOMContentLoaded", () => {
                 { q: 'Quais são as principais indicações?', a: 'Aderências e fibroses pós-traumáticas ou pós-cirúrgicas, síndromes por pinçamento (túnel do carpo, ciatalgias), tendinopatias e fascite plantar, síndrome da dor miofascial (pontos-gatilho) e disfunções esportivas.' },
                 { q: 'Quais são as contraindicações?', a: 'Não deve ser aplicada em casos de fragilidade cutânea (feridas, queimaduras), distúrbios de coagulação (uso de anticoagulantes, hemofilia, TVP), processos infecciosos ou inflamatórios agudos (febre, infecções locais), e tumores malignos ou suspeitas de câncer na região.' }
             ]
+        },
+        'ozonioterapia': {
+            title: 'Ozonioterapia',
+            description: 'A Ozonioterapia é uma abordagem terapêutica baseada na administração de uma mistura gasosa de oxigênio-ozônio (O2-O3), obtida através de um gerador de descarga de alta voltagem (efeito Corona) a partir de oxigênio medicinal puro. O ozônio (O3) atua como um indutor de estresse oxidativo controlado (eustresse). Ao entrar em contato com os fluidos biológicos, ele reage instantaneamente com ácidos graxos poli-insaturados (PUFAs) e compostos antioxidantes locais, ativando vias de sinalização celular fundamentais, modulando o sistema antioxidante endógeno (via Nrf2), atenuando cascatas inflamatórias e otimizando a liberação de oxigênio para os tecidos.',
+            image: 'assets/img/clinic-ozonioterapia.png',
+            benefits: [
+                'Modulação do Nrf2: Induz a transcrição de enzimas antioxidantes endógenas (superóxido dismutase, catalase, glutationa peroxidase).',
+                'Inibição do NF-κB: Atenua a cascata pró-inflamatória, reduzindo a liberação de citocinas inflamatórias (TNF-α, IL-1β e IL-6).',
+                'Otimização Reológica e Metabólica: Aumenta a glicólise nos eritrócitos, facilitando a liberação de oxigênio (O2) para os tecidos isquêmicos e estimulando a vasodilatação.',
+                'Ação analgésica e anti-inflamatória potente em patologias ortopédicas e síndromes de dor crônica.'
+            ],
+            faqs: [
+                { q: 'Quais são as indicações clínicas baseadas em evidências?', a: 'Patologias ortopédicas e reumatológicas (discopatias, hérnia de disco lombar/cervical, osteoartrite de joelho, tendinopatias e síndromes miofasciais), isquemias periféricas crônicas, fibromialgia, dores neuropáticas e suporte adjuvante em doenças autoimunes.' },
+                { q: 'Quais são as contraindicações absolutas?', a: 'Deficiência de Glicose-6-Fosfato Desidrogenase (G6PD / Favismo) pelo risco de hemólise aguda severa; inalação direta da mistura gasosa (altamente tóxica para o epitélio pulmonar); hipertiroidismo descompensado (toxicose); e gestação.' },
+                { q: 'Quais são as contraindicações relativas?', a: 'Distúrbios de coagulação graves ou hemorragias ativas (pode interferir na agregação plaquetária), infarto agudo do miocárdio recente, AVC isquêmico agudo, intoxicação alcoólica aguda ou estados convulsivos.' }
+            ]
+        },
+        'dry-needling': {
+            title: 'Dry Needling',
+            description: 'O Dry Needling (ou agulhamento a seco) é uma técnica que utiliza agulhas ultrafinas — idênticas às da acupuntura — para desativar pontos-gatilho (trigger points), que são aqueles nós rígidos e dolorosos que se formam nos músculos tensionados. Ao contrário da acupuntura tradicional, o dry needling se baseia puramente na anatomia humana e na neurofisiologia. A agulha penetra na pele até o músculo para quebrar esse ciclo de dor, gerando uma resposta de relaxamento muscular quase imediata.',
+            image: 'assets/img/clinic-dry-needling.png',
+            benefits: [
+                'Desativação rápida de pontos-gatilho (trigger points) e nós de tensão muscular.',
+                'Alívio imediato e duradouro de dores miofasciais e torcicolos.',
+                'Redução expressiva de cefaleia tensional e dores irradiadas dos ombros/pescoço.',
+                'Melhora significativa da flexibilidade e da amplitude articular.'
+            ],
+            faqs: [
+                { q: 'Quais são as principais indicações do Dry Needling?', a: 'Dores miofasciais localizadas ou crônicas, torcicolos, tensões na cervical e lombar, cefaleia tensional, lesões esportivas (sobrecargas e tendinites) e síndrome da dor patelofemoral nos joelhos.' },
+                { q: 'Quais são as contraindicações absolutas?', a: 'Recusa do paciente (medo extremo de agulhas/belonofobia), infecções ou feridas ativas no local a ser agulado, e áreas com comprometimento do sistema linfático (linfedema).' },
+                { q: 'Quais são as contraindicações relativas que exigem cuidado ou adaptações?', a: 'Distúrbios de coagulação ou uso de anticoagulantes (risco de hematomas), gestantes (evitar áreas lombares, pélvicas e abdominais), sistema imunológico enfraquecido e aplicação próxima a próteses ou implantes cirúrgicos recentes.' }
+            ]
+        },
+        'kabat': {
+            title: 'Kabat',
+            description: 'O Método Kabat, também conhecido como Facilitação Neuromuscular Proprioceptiva (FNP), é uma abordagem terapêutica que utiliza padrões de movimentos diagonais e espirais associados a estímulos sensoriais (táteis, visuais e verbais). O objetivo é facilitar e melhorar a resposta neuromuscular, promovendo o ganho de força, flexibilidade, coordenação e estabilidade articular. É amplamente indicado tanto na reabilitação neurológica quanto na ortopédica.',
+            image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
+            benefits: [
+                'Melhora significativa da coordenação motora e do equilíbrio corporal',
+                'Ganho rápido de força muscular através de facilitação proprioceptiva',
+                'Estabilização articular dinâmica e melhora do controle postural',
+                'Restauração de padrões funcionais de movimento no dia a dia'
+            ],
+            faqs: [
+                { q: 'O que significa Facilitação Neuromuscular Proprioceptiva?', a: 'Proprioceptiva refere-se aos receptores sensoriais internos que informam o corpo sobre sua posição e movimento; Neuromuscular envolve a interação entre nervos e músculos; e Facilitação significa tornar o movimento mais fácil e coordenado.' },
+                { q: 'Para quem o método Kabat é indicado?', a: 'É indicado para reabilitação pós-AVC, paralisias faciais, lesões medulares, esclerose múltipla, pós-operatórios ortopédicos, disfunções posturais e fraqueza muscular geral.' }
+            ]
+        },
+        'liberacoes-miofasciais': {
+            title: 'Liberações Miofasciais',
+            description: 'A Liberação Miofascial é uma técnica manual altamente especializada que foca na fáscia muscular (o tecido conjuntivo que envolve e conecta todos os músculos e órgãos). Através de pressões manuais lentas e direcionadas, o terapeuta elimina restrições fasciais, desfaz aderências e desativa pontos-gatilho dolorosos. O resultado é o alívio imediato da tensão muscular, melhora da circulação local e restauração completa da amplitude de movimento.',
+            image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=800',
+            benefits: [
+                'Alívio imediato de tensões musculares agudas e crônicas',
+                'Restauração da flexibilidade e da elasticidade da fáscia',
+                'Melhora do fluxo sanguíneo e oxigenação dos tecidos musculares',
+                'Aceleração da recuperação muscular pós-treino (recovery)'
+            ],
+            faqs: [
+                { q: 'O que é a fáscia muscular e por que ela fica rígida?', a: 'A fáscia é uma teia tridimensional contínua que envolve todas as estruturas do corpo. Sob estresse físico, má postura, sedentarismo ou lesões, ela perde hidratação, encurta e forma aderências rígidas, gerando dor e limitação de movimento.' },
+                { q: 'A liberação miofascial causa dor?', a: 'Pode haver um desconforto suportável quando o fisioterapeuta atua sobre pontos de maior aderência ou nódulos de tensão. No entanto, a intensidade da técnica é dosada de acordo com o limite do paciente, resultando em uma profunda sensação de alívio e relaxamento logo após.' }
+            ]
         }
     };
 
@@ -449,5 +511,72 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // =========================================
+    // Botão Flutuante do WhatsApp com Múltiplas Regiões
+    // =========================================
+    const injectWhatsAppWidget = () => {
+        const widgetHTML = `
+            <div class="whatsapp-widget">
+                <div class="whatsapp-popup" id="whatsapp-popup">
+                    <div class="whatsapp-popup-header">
+                        <div class="whatsapp-avatar">💬</div>
+                        <div class="whatsapp-header-info">
+                            <h4>Atendimento Nucre</h4>
+                            <p>Online • Resposta rápida</p>
+                        </div>
+                        <button class="whatsapp-popup-close" id="whatsapp-close-btn">&times;</button>
+                    </div>
+                    <div class="whatsapp-popup-body">
+                        <p>Olá! Escolha a unidade para iniciar o contato no WhatsApp:</p>
+                        <div class="whatsapp-buttons">
+                            <a href="https://api.whatsapp.com/send?phone=5511973165620&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20a%20unidade%20de%20S%C3%A3o%20Paulo." target="_blank" class="whatsapp-btn-option">
+                                <span class="btn-option-icon">🏢</span>
+                                <div class="btn-option-text">
+                                    <strong>São Paulo - Capital</strong>
+                                    <span>Clínica no Planalto Paulista</span>
+                                </div>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=5511973165620&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20domiciliar%20em%20Itupeva%20e%20Indaiatuba." target="_blank" class="whatsapp-btn-option">
+                                <span class="btn-option-icon">🏠</span>
+                                <div class="btn-option-text">
+                                    <strong>Itupeva e Indaiatuba</strong>
+                                    <span>Fisioterapia Home Care (Domiciliar)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="whatsapp-trigger-btn" id="whatsapp-trigger-btn" aria-label="Fale conosco no WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </button>
+            </div>
+        `;
+        
+        const div = document.createElement('div');
+        div.innerHTML = widgetHTML.trim();
+        const widgetElement = div.firstChild;
+        document.body.appendChild(widgetElement);
+        
+        const trigger = document.getElementById('whatsapp-trigger-btn');
+        const popup = document.getElementById('whatsapp-popup');
+        const closeBtn = document.getElementById('whatsapp-close-btn');
+        
+        trigger.addEventListener('click', () => {
+            popup.classList.toggle('active');
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!widgetElement.contains(e.target) && popup.classList.contains('active')) {
+                popup.classList.remove('active');
+            }
+        });
+    };
+    
+    injectWhatsAppWidget();
 
 });
