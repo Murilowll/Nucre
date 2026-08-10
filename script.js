@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================================
     const servicesData = {
         'fisioterapia-esportiva': {
-            title: 'Fisioterapia Esportiva',
-            description: 'A Fisioterapia Esportiva tem como principal objetivo reabilitar e prevenir lesões em atletas e praticantes de exercícios físicos. O foco de nossos profissionais está concentrado em proporcionar o retorno do indivíduo ao esporte o mais rápido possível. Por meio de análise do quadro de cada paciente, é possível elaborar uma técnica especializada e personalizada para cuidar e tratar cada caso. A fisioterapia esportiva prepara atletas especificamente para competições, previne lesões e dores em pessoas que praticam atividades físicas e recupera as contusões ocasionadas pelo esporte.',
+            title: 'Reabilitação de Lesões Esportivas',
+            description: 'Seja você um atleta profissional de alto rendimento ou um praticante de atividades físicas recreativas, nossa equipe está preparada para acelerar o seu retorno seguro ao esporte (return-to-play). Atuamos na fase aguda e crônica de lesões musculares, tendíneas e ligamentares, associando o manejo da dor ao restabelecimento da potência, flexibilidade e estabilidade articular.',
             image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800',
             benefits: [
                 'Acelera o tempo de recuperação dos músculos, ligamentos, tendões e outras partes do corpo',
@@ -81,15 +81,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 { q: 'Quais tipos de casos vocês tratam?', a: 'Atuamos em disfunções traumato-ortopédicas e reumatológicas, pós-operatórios, lesões musculares e ligamentares, hérnias, fraturas, entre outros.' }
             ]
         },
+        'pos-operatorios-complexos': {
+            title: 'Pós-Operatórios Complexos',
+            description: 'A reabilitação pós-cirúrgica (ortopédica e traumatológica) exige precisão cronológica para respeitar os tempos biológicos de cicatrização tecidual. Atendemos pacientes pós-artroscopias, reconstruções ligamentares (como LCA), artroplastias (próteses), cirurgias de coluna e diversos outros tipos de cirurgias; minimizando aderências cicatriciais, controlando o processo inflamatório e devolvendo a funcionalidade plena de forma gradual e segura.',
+            image: 'https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800',
+            benefits: [
+                'Respeito rigoroso aos tempos biológicos de cicatrização tecidual',
+                'Prevenção e eliminação de aderências cicatriciais e contraturas musculares',
+                'Controle efetivo do edema e do processo inflamatório pós-cirúrgico',
+                'Restabelecimento gradual e seguro da amplitude de movimento e força muscular'
+            ],
+            faqs: [
+                { q: 'Quando devo iniciar a fisioterapia após a cirurgia?', a: 'O momento ideal depende da orientação do seu cirurgião, porém em muitos casos a fisioterapia inicia-se nos primeiros dias pós-cirúrgicos para controlar o edema e a dor.' },
+                { q: 'Quais cirurgias são atendidas?', a: 'Atendemos pós-operatórios de LCA, próteses de quadril e joelho, cirurgias de coluna, artroscopias de ombro e fraturas complexas.' }
+            ]
+        },
         'qualidade-de-vida': {
-            title: 'Qualidade de Vida',
-            description: 'Qualidade de vida e saúde andam juntas. Contamos com técnicas e modalidades que dão suporte e aptidão para as pessoas realizarem suas atividades diárias sem limitações. A Fisioterapia é uma ótima aliada para pessoas da terceira idade, melhorando a disposição para atividades físicas, locomoção e evitando a incidência de problemas ligados ao corpo e aos movimentos. Com nosso plano individual e personalizado, os idosos podem continuar exercendo suas atividades diárias e físicas sem interrupções.',
+            title: 'Longevidade e Qualidade de Vida',
+            description: 'A fisioterapia vai muito além do tratamento da dor aguda; ela é uma ferramenta de preservação funcional. Desenvolvemos programas focados na melhoria da mobilidade, alívio de tensões crônicas, correção de desequilíbrios biomecânicos e prevenção de lesões, permitindo que nossos pacientes desfrutem de uma rotina ativa, independente e com máxima vitalidade.',
             image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800',
             benefits: [
-                'Aumento expressivo da força muscular e óssea',
-                'Melhora significativa da flexibilidade, equilíbrio e coordenação motora',
-                'Prevenção do risco de quedas e de complicações respiratórias',
-                'Melhoria do desempenho funcional, autonomia e bem-estar psicológico'
+                'Aumento expressivo da mobilidade articular e flexibilidade muscular',
+                'Alívio duradouro de dores e tensões crônicas no corpo',
+                'Correção de desequilíbrios biomecânicos e prevenção de novas lesões',
+                'Melhoria da vitalidade, autonomia e independência nas atividades diárias'
             ],
             faqs: [
                 { q: 'Como é elaborado o plano de tratamento?', a: 'O plano envolve fortalecimento de músculos chave para atividades diárias, uso de terapias manuais para saúde articular, treinos de equilíbrio e analgesia de pontos dolorosos.' },
