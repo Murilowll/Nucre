@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo Pro | Nucre CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="admin-body">
+
+    <!-- Tela de Login -->
+    <div id="admin-login-screen" class="admin-login-wrapper">
+        <div class="admin-login-card">
+            <div class="admin-login-logo">
+                <img src="assets/img/logo-nucre.png" alt="Nucre Fisioterapia">
+            </div>
+            <h2>Área Administrativa</h2>
+            <p class="admin-login-sub">Digite suas credenciais de acesso para gerenciar o site.</p>
+            
+            <div id="login-error" class="admin-alert admin-alert-danger" style="display: none;">
+                Usuário ou senha incorretos!
+            </div>
+
+            <form id="login-form">
+                <div class="admin-form-group">
+                    <label for="admin-user">Usuário</label>
+                    <input type="text" id="admin-user" placeholder="Digite o usuário" required autocomplete="username">
+                </div>
+                <div class="admin-form-group">
+                    <label for="admin-pass">Senha</label>
+                    <input type="password" id="admin-pass" placeholder="Digite a senha" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; margin-top: 1rem;">Entrar no Painel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Painel Dashboard Admin Pro -->
+    <div id="admin-dashboard-screen" class="admin-dashboard-wrapper" style="display: none;">
+        
+        <header class="admin-navbar">
+            <div class="container admin-nav-container">
+                <div class="admin-brand">
+                    <img src="assets/img/logo-nucre.png" alt="Nucre CMS">
+                    <span>Nucre CMS Pro</span>
+                </div>
+
+                <div class="admin-search-box">
+                    <input type="text" id="admin-search-input" placeholder="🔍 Buscar campo (ex: Hero, Elton, WhatsApp)...">
+                </div>
+
+                <div class="admin-actions">
+                    <button id="btn-toggle-preview" type="button" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem; border-color: var(--accent-cyan); color: var(--primary-blue);">👁️ Prévia ao Vivo</button>
+                    <button id="btn-export-json" type="button" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;" title="Baixar backup em arquivo JSON">📥 Backup JSON</button>
+                    <label for="input-import-json" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem; cursor: pointer;" title="Restaurar backup de um arquivo JSON">📤 Carregar JSON</label>
+                    <input type="file" id="input-import-json" accept=".json" style="display: none;">
+                    <button id="btn-reset-default" type="button" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem; border-color: #ef4444; color: #ef4444;">Restaurar Padrão</button>
+                    <button id="btn-logout" type="button" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem; background-color: var(--primary-blue); border-color: var(--primary-blue); color: white;">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container admin-main-content">
+            
+            <div class="admin-header-title">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h1>Gerenciador de Conteúdos Nucre</h1>
+                        <p>Edite os textos, envie fotos do seu computador e visualize as alterações em tempo real.</p>
+                    </div>
+                    <div id="unsaved-badge" class="admin-unsaved-badge" style="display: none;">
+                        ⚠️ <span>0</span> alterações pendentes de salvamento
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abas por Página -->
+            <div class="admin-tabs">
+                <button type="button" class="admin-tab-btn active" data-tab="tab-home">Início (index.html)</button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-clinica">Nossa Clínica</button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-servicos">Serviços</button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-equipe">Equipe Nucre</button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-contato">Contato</button>
+            </div>
+
+            <!-- Split Layout: Formulários + Live Preview Panel -->
+            <div class="admin-split-layout">
+                
+                <!-- Coluna de Edição -->
+                <div class="admin-editor-col">
+                    
+                    <form id="cms-form">
+                        
+                        <!-- ABA 1: Início -->
+                        <div id="tab-home" class="admin-tab-content active">
+                            
+                            <div class="admin-section-box">
+                                <h3>Hero / Capa da Página Inicial</h3>
+                                <div class="admin-form-group">
+                                    <label>Título Principal (H1)</label>
+                                    <input type="text" name="home_hero_title" data-path="home.hero.title">
+                                    <span class="char-counter">0 caracteres</span>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Subtítulo em Destaque</label>
+                                    <input type="text" name="home_hero_subtitle" data-path="home.hero.subtitle">
+                                    <span class="char-counter">0 caracteres</span>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Texto Descritivo do Hero</label>
+                                    <textarea name="home_hero_text" rows="3" data-path="home.hero.text"></textarea>
+                                    <span class="char-counter">0 caracteres</span>
+                                </div>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group">
+                                        <label>Imagem 1 do Carrossel</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="home_hero_img1" data-path="home.hero.img1" placeholder="URL ou envie arquivo">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="home_hero_img1">
+                                            <div class="admin-img-preview-wrap"><img id="prev_home_hero_img1" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Imagem 2 do Carrossel</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="home_hero_img2" data-path="home.hero.img2" placeholder="URL ou envie arquivo">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="home_hero_img2">
+                                            <div class="admin-img-preview-wrap"><img id="prev_home_hero_img2" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Imagem 3 do Carrossel</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="home_hero_img3" data-path="home.hero.img3" placeholder="URL ou envie arquivo">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="home_hero_img3">
+                                            <div class="admin-img-preview-wrap"><img id="prev_home_hero_img3" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Nossos Pilares Sólidos (Diferenciais)</h3>
+                                <div class="admin-form-group">
+                                    <label>Título da Seção</label>
+                                    <input type="text" name="home_pilares_title" data-path="home.pilares.title">
+                                    <span class="char-counter">0 caracteres</span>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Subtítulo da Seção</label>
+                                    <input type="text" name="home_pilares_subtitle" data-path="home.pilares.subtitle">
+                                    <span class="char-counter">0 caracteres</span>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>Pilar 1</h4>
+                                    <div class="admin-form-group">
+                                        <label>Título do Pilar 1</label>
+                                        <input type="text" name="home_pilar1_title" data-path="home.pilares.p1_title">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Descrição do Pilar 1</label>
+                                        <textarea name="home_pilar1_text" rows="3" data-path="home.pilares.p1_text"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>Pilar 2</h4>
+                                    <div class="admin-form-group">
+                                        <label>Título do Pilar 2</label>
+                                        <input type="text" name="home_pilar2_title" data-path="home.pilares.p2_title">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Descrição do Pilar 2</label>
+                                        <textarea name="home_pilar2_text" rows="3" data-path="home.pilares.p2_text"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>Pilar 3</h4>
+                                    <div class="admin-form-group">
+                                        <label>Título do Pilar 3</label>
+                                        <input type="text" name="home_pilar3_title" data-path="home.pilares.p3_title">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Descrição do Pilar 3</label>
+                                        <textarea name="home_pilar3_text" rows="3" data-path="home.pilares.p3_text"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Depoimentos de Pacientes</h3>
+                                <div class="admin-pilar-card">
+                                    <h4>Depoimento 1</h4>
+                                    <div class="admin-form-group"><label>Nome do Paciente</label><input type="text" data-path="home.feedbacks.f1_name"></div>
+                                    <div class="admin-form-group"><label>Texto do Depoimento</label><textarea rows="3" data-path="home.feedbacks.f1_text"></textarea></div>
+                                </div>
+                                <div class="admin-pilar-card">
+                                    <h4>Depoimento 2</h4>
+                                    <div class="admin-form-group"><label>Nome do Paciente</label><input type="text" data-path="home.feedbacks.f2_name"></div>
+                                    <div class="admin-form-group"><label>Texto do Depoimento</label><textarea rows="3" data-path="home.feedbacks.f2_text"></textarea></div>
+                                </div>
+                                <div class="admin-pilar-card">
+                                    <h4>Depoimento 3</h4>
+                                    <div class="admin-form-group"><label>Nome do Paciente</label><input type="text" data-path="home.feedbacks.f3_name"></div>
+                                    <div class="admin-form-group"><label>Texto do Depoimento</label><textarea rows="3" data-path="home.feedbacks.f3_text"></textarea></div>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Estatísticas e Números da Clínica</h3>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group"><label>Número 1</label><input type="text" data-path="home.stats.s1_num"></div>
+                                    <div class="admin-form-group"><label>Rótulo 1</label><input type="text" data-path="home.stats.s1_label"></div>
+                                </div>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group"><label>Número 2</label><input type="text" data-path="home.stats.s2_num"></div>
+                                    <div class="admin-form-group"><label>Rótulo 2</label><input type="text" data-path="home.stats.s2_label"></div>
+                                </div>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group"><label>Número 3</label><input type="text" data-path="home.stats.s3_num"></div>
+                                    <div class="admin-form-group"><label>Rótulo 3</label><input type="text" data-path="home.stats.s3_label"></div>
+                                </div>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group"><label>Número 4</label><input type="text" data-path="home.stats.s4_num"></div>
+                                    <div class="admin-form-group"><label>Rótulo 4</label><input type="text" data-path="home.stats.s4_label"></div>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Home Care (Atendimento Domiciliar)</h3>
+                                <div class="admin-form-group">
+                                    <label>Título da Seção</label>
+                                    <input type="text" name="home_care_title" data-path="home.care.title">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Subtítulo</label>
+                                    <input type="text" name="home_care_subtitle" data-path="home.care.subtitle">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Texto Informativo</label>
+                                    <textarea name="home_care_text" rows="3" data-path="home.care.text"></textarea>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Imagem Lateral</label>
+                                    <div class="admin-img-uploader-box">
+                                        <input type="text" name="home_care_img" data-path="home.care.img" placeholder="URL ou envie foto">
+                                        <input type="file" accept="image/*" class="admin-file-input" data-target="home_care_img">
+                                        <div class="admin-img-preview-wrap"><img id="prev_home_care_img" src="" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ABA 2: Nossa Clínica -->
+                        <div id="tab-clinica" class="admin-tab-content">
+                            <div class="admin-section-box">
+                                <h3>Capa Nossa Clínica</h3>
+                                <div class="admin-form-group">
+                                    <label>Título da Página (H1)</label>
+                                    <input type="text" name="clinica_hero_title" data-path="clinica.hero.title">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Subtítulo</label>
+                                    <input type="text" name="clinica_hero_subtitle" data-path="clinica.hero.subtitle">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Texto Institucional</label>
+                                    <textarea name="clinica_hero_text" rows="4" data-path="clinica.hero.text"></textarea>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Imagem da Clínica</label>
+                                    <div class="admin-img-uploader-box">
+                                        <input type="text" name="clinica_hero_img" data-path="clinica.hero.img" placeholder="URL ou envie foto">
+                                        <input type="file" accept="image/*" class="admin-file-input" data-target="clinica_hero_img">
+                                        <div class="admin-img-preview-wrap"><img id="prev_clinica_hero_img" src="" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Estrutura e Histórico</h3>
+                                <div class="admin-form-group">
+                                    <label>Título da Seção</label>
+                                    <input type="text" name="clinica_stats_title" data-path="clinica.stats.title">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Subtítulo / Slogan</label>
+                                    <input type="text" name="clinica_stats_subtitle" data-path="clinica.stats.subtitle">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ABA 3: Serviços -->
+                        <div id="tab-servicos" class="admin-tab-content">
+                            <div class="admin-section-box">
+                                <h3>Cards de Destaque da Página Inicial</h3>
+                                
+                                <div class="admin-pilar-card">
+                                    <h4>1. Reabilitação de Lesões Esportivas (Card Destaque 1)</h4>
+                                    <div class="admin-form-group">
+                                        <label>Título do Card</label>
+                                        <input type="text" name="srv_esp1_title" data-path="services.esp1.title">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Descrição Curta do Card</label>
+                                        <textarea name="srv_esp1_desc" rows="3" data-path="services.esp1.desc"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Imagem de Fundo</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="srv_esp1_img" data-path="services.esp1.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="srv_esp1_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_srv_esp1_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>2. Pós-Operatórios Complexos (Card Destaque 2)</h4>
+                                    <div class="admin-form-group">
+                                        <label>Título do Card</label>
+                                        <input type="text" name="srv_esp2_title" data-path="services.esp2.title">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Descrição Curta do Card</label>
+                                        <textarea name="srv_esp2_desc" rows="3" data-path="services.esp2.desc"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Imagem de Fundo</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="srv_esp2_img" data-path="services.esp2.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="srv_esp2_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_srv_esp2_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>3. Longevidade e Qualidade de Vida (Card Destaque 3)</h4>
+                                    <div class="admin-form-group">
+                                        <label>Título do Card</label>
+                                        <input type="text" name="srv_esp3_title" data-path="services.esp3.title">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Descrição Curta do Card</label>
+                                        <textarea name="srv_esp3_desc" rows="3" data-path="services.esp3.desc"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Imagem de Fundo</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="srv_esp3_img" data-path="services.esp3.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="srv_esp3_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_srv_esp3_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Edição Completa dos 16 Serviços e Modais Internos</h3>
+                                <p style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 1.5rem;">Clique no serviço para expandir e editar os textos, imagem, 4 benefícios e perguntas frequentes (FAQs).</p>
+
+                                <div class="admin-accordion">
+                                    <!-- Servicio 1: Lesões Esportivas -->
+                                    <details class="admin-acc-item">
+                                        <summary>🏃 1. Reabilitação de Lesões Esportivas</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.fisioterapia-esportiva.description"></textarea></div>
+                                            <div class="admin-form-group"><label>Imagem do Serviço</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.image"></div>
+                                            <div class="admin-form-group"><label>Benefício 1</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.benefits.0"></div>
+                                            <div class="admin-form-group"><label>Benefício 2</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.benefits.1"></div>
+                                            <div class="admin-form-group"><label>Benefício 3</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.benefits.2"></div>
+                                            <div class="admin-form-group"><label>Benefício 4</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.benefits.3"></div>
+                                            <div class="admin-form-group"><label>FAQ 1 - Pergunta</label><input type="text" data-path="servicesDetails.fisioterapia-esportiva.faqs.0.q"></div>
+                                            <div class="admin-form-group"><label>FAQ 1 - Resposta</label><textarea rows="2" data-path="servicesDetails.fisioterapia-esportiva.faqs.0.a"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 2: Osteopatia -->
+                                    <details class="admin-acc-item">
+                                        <summary>🦴 2. Osteopatia</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.osteopatia.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.osteopatia.description"></textarea></div>
+                                            <div class="admin-form-group"><label>Imagem do Serviço</label><input type="text" data-path="servicesDetails.osteopatia.image"></div>
+                                            <div class="admin-form-group"><label>Benefício 1</label><input type="text" data-path="servicesDetails.osteopatia.benefits.0"></div>
+                                            <div class="admin-form-group"><label>Benefício 2</label><input type="text" data-path="servicesDetails.osteopatia.benefits.1"></div>
+                                            <div class="admin-form-group"><label>Benefício 3</label><input type="text" data-path="servicesDetails.osteopatia.benefits.2"></div>
+                                            <div class="admin-form-group"><label>Benefício 4</label><input type="text" data-path="servicesDetails.osteopatia.benefits.3"></div>
+                                            <div class="admin-form-group"><label>FAQ 1 - Pergunta</label><input type="text" data-path="servicesDetails.osteopatia.faqs.0.q"></div>
+                                            <div class="admin-form-group"><label>FAQ 1 - Resposta</label><textarea rows="2" data-path="servicesDetails.osteopatia.faqs.0.a"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 3: Dry Needling -->
+                                    <details class="admin-acc-item">
+                                        <summary>🪡 3. Dry Needling (Agulhamento a Seco)</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.dry-needling.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.dry-needling.description"></textarea></div>
+                                            <div class="admin-form-group"><label>Imagem do Serviço</label><input type="text" data-path="servicesDetails.dry-needling.image"></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 4: Recovery -->
+                                    <details class="admin-acc-item">
+                                        <summary>🦵 4. Recovery com Botas Pneumáticas</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.recovery.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.recovery.description"></textarea></div>
+                                            <div class="admin-form-group"><label>Imagem do Serviço</label><input type="text" data-path="servicesDetails.recovery.image"></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 5: Ozonioterapia -->
+                                    <details class="admin-acc-item">
+                                        <summary>💨 5. Ozonioterapia</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.ozonioterapia.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.ozonioterapia.description"></textarea></div>
+                                            <div class="admin-form-group"><label>Imagem do Serviço</label><input type="text" data-path="servicesDetails.ozonioterapia.image"></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 6: Ventosaterapia -->
+                                    <details class="admin-acc-item">
+                                        <summary>🔴 6. Ventosaterapia</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.ventosaterapia.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.ventosaterapia.description"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 7: Miofibrólise Percutânea -->
+                                    <details class="admin-acc-item">
+                                        <summary>🩺 7. Miofibrólise Percutânea</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.miofibrolise-percutanea.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.miofibrolise-percutanea.description"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 8: Terapias Manuais -->
+                                    <details class="admin-acc-item">
+                                        <summary>🖐️ 8. Terapias Manuais</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.terapias-manuais.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.terapias-manuais.description"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 9: Maitland -->
+                                    <details class="admin-acc-item">
+                                        <summary>📐 9. Método Maitland</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.maitland.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.maitland.description"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 10: Mulligan -->
+                                    <details class="admin-acc-item">
+                                        <summary>⚙️ 10. Método Mulligan</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.mulligan.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.mulligan.description"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 11: Kabat -->
+                                    <details class="admin-acc-item">
+                                        <summary>🧘 11. Método Kabat</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.kabat.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.kabat.description"></textarea></div>
+                                        </div>
+                                    </details>
+
+                                    <!-- Servicio 12: Liberações Miofasciais -->
+                                    <details class="admin-acc-item">
+                                        <summary>✨ 12. Liberações Miofasciais</summary>
+                                        <div class="admin-acc-content">
+                                            <div class="admin-form-group"><label>Título Completo</label><input type="text" data-path="servicesDetails.liberacoes-miofasciais.title"></div>
+                                            <div class="admin-form-group"><label>Descrição Completa</label><textarea rows="4" data-path="servicesDetails.liberacoes-miofasciais.description"></textarea></div>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ABA 4: Equipe Nucre (5 Fisioterapeutas) -->
+                        <div id="tab-equipe" class="admin-tab-content">
+                            <div class="admin-section-box">
+                                <h3>Cabeçalho da Seção de Equipe</h3>
+                                <div class="admin-form-group">
+                                    <label>Título da Seção</label>
+                                    <input type="text" name="team_header_title" data-path="team.header.title">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Descrição da Seção</label>
+                                    <textarea name="team_header_desc" rows="2" data-path="team.header.desc"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="admin-section-box">
+                                <h3>Corpo Clínico</h3>
+
+                                <div class="admin-pilar-card">
+                                    <h4>1. Elton Pirani (Sócio Proprietário)</h4>
+                                    <div class="admin-form-group">
+                                        <label>Cargo / Qualificação</label>
+                                        <input type="text" name="team_elton_role" data-path="team.elton.role">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Biografia</label>
+                                        <textarea name="team_elton_bio" rows="3" data-path="team.elton.bio"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Foto de Perfil</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="team_elton_img" data-path="team.elton.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="team_elton_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_team_elton_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>2. Ricardo Vinicius (Sócio Proprietário)</h4>
+                                    <div class="admin-form-group">
+                                        <label>Cargo / Qualificação</label>
+                                        <input type="text" name="team_ricardo_role" data-path="team.ricardo.role">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Biografia</label>
+                                        <textarea name="team_ricardo_bio" rows="3" data-path="team.ricardo.bio"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Foto de Perfil</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="team_ricardo_img" data-path="team.ricardo.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="team_ricardo_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_team_ricardo_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>3. André Pantalena</h4>
+                                    <div class="admin-form-group">
+                                        <label>Cargo / Qualificação</label>
+                                        <input type="text" name="team_andre_role" data-path="team.andre.role">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Biografia</label>
+                                        <textarea name="team_andre_bio" rows="3" data-path="team.andre.bio"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Foto de Perfil</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="team_andre_img" data-path="team.andre.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="team_andre_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_team_andre_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>4. Fábio Fernandes</h4>
+                                    <div class="admin-form-group">
+                                        <label>Cargo / Qualificação</label>
+                                        <input type="text" name="team_fabio_role" data-path="team.fabio.role">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Biografia</label>
+                                        <textarea name="team_fabio_bio" rows="3" data-path="team.fabio.bio"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Foto de Perfil</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="team_fabio_img" data-path="team.fabio.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="team_fabio_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_team_fabio_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-pilar-card">
+                                    <h4>5. Joice Santos</h4>
+                                    <div class="admin-form-group">
+                                        <label>Cargo / Qualificação</label>
+                                        <input type="text" name="team_joice_role" data-path="team.joice.role">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Biografia</label>
+                                        <textarea name="team_joice_bio" rows="3" data-path="team.joice.bio"></textarea>
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label>Foto de Perfil</label>
+                                        <div class="admin-img-uploader-box">
+                                            <input type="text" name="team_joice_img" data-path="team.joice.img" placeholder="URL ou envie foto">
+                                            <input type="file" accept="image/*" class="admin-file-input" data-target="team_joice_img">
+                                            <div class="admin-img-preview-wrap"><img id="prev_team_joice_img" src="" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- ABA 5: Contato -->
+                        <div id="tab-contato" class="admin-tab-content">
+                            <div class="admin-section-box">
+                                <h3>Informações de Contato</h3>
+                                <div class="admin-form-group">
+                                    <label>Título da Página de Contato</label>
+                                    <input type="text" name="contact_title" data-path="contact.title">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Subtítulo da Página</label>
+                                    <input type="text" name="contact_subtitle" data-path="contact.subtitle">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Link / Telefone do WhatsApp (ex: 5511973165620)</label>
+                                    <input type="text" name="contact_whatsapp" data-path="contact.whatsapp">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Endereço Completo</label>
+                                    <input type="text" name="contact_address" data-path="contact.address">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>E-mail de Contato</label>
+                                    <input type="email" name="contact_email" data-path="contact.email">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label>Telefone Fixo</label>
+                                    <input type="text" name="contact_phone" data-path="contact.phone">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Barra Flutuante de Salvamento -->
+                        <div class="admin-sticky-bar">
+                            <div class="container admin-sticky-container">
+                                <span id="save-status-text">Pronto para publicar? Clique em salvar.</span>
+                                <button type="submit" class="btn btn-primary" style="padding: 12px 30px; font-size: 1rem;">💾 Salvar Alterações no Site</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- Coluna de Live Preview (iFrame do Site Real) -->
+                <div id="admin-preview-col" class="admin-preview-col">
+                    <div class="admin-preview-card">
+                        <div class="admin-preview-header">
+                            <div class="admin-preview-controls">
+                                <button type="button" class="admin-device-btn active" data-device="desktop">🖥️ Desktop</button>
+                                <button type="button" class="admin-device-btn" data-device="mobile">📱 Mobile</button>
+                            </div>
+                            <div class="admin-preview-actions">
+                                <a id="btn-open-live-page" href="index.html" target="_blank" class="admin-link-btn" title="Abrir página atual em uma nova aba">🔗 Abrir Página</a>
+                            </div>
+                        </div>
+                        <div class="admin-iframe-wrapper desktop-view" id="iframe-wrapper">
+                            <iframe id="cms-live-iframe" src="index.html" title="Prévia do Site ao Vivo"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="admin-toast" class="admin-toast">Conteúdos atualizados com sucesso!</div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

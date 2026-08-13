@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Aplica alterações salvas via Painel Admin (CMS)
+    applyCMSContent();
+
     // Configurações do observador
     const observerOptions = {
         root: null, // Observa em relação à viewport do navegador
@@ -334,35 +337,58 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!listSection || !detailSection) return;
 
         if (hash && servicesData[hash]) {
-            document.getElementById('detail-title').textContent = servicesData[hash].title;
-            document.getElementById('detail-description').textContent = servicesData[hash].description;
-            document.getElementById('detail-image').src = servicesData[hash].image;
+            let sData = servicesData[hash];
+            const rawCMS = localStorage.getItem("nucre_cms_data");
+            if (rawCMS) {
+                try {
+                    const parsedCMS = JSON.parse(rawCMS);
+                    if (parsedCMS && parsedCMS.servicesDetails && parsedCMS.servicesDetails[hash]) {
+                        sData = Object.assign({}, sData, parsedCMS.servicesDetails[hash]);
+                    }
+                } catch(e) {}
+            }
+
+            const titleEl = document.getElementById('detail-title');
+            const descEl = document.getElementById('detail-description');
+            const imgEl = document.getElementById('detail-image');
+
+            if (titleEl && sData.title) titleEl.textContent = sData.title;
+            if (descEl && sData.description) descEl.textContent = sData.description;
+            if (imgEl && sData.image) imgEl.src = sData.image;
 
             // Preencher Benefícios
             const benefitsList = document.getElementById('detail-benefits');
-            benefitsList.innerHTML = '';
-            servicesData[hash].benefits.forEach(benefit => {
-                const li = document.createElement('li');
-                li.textContent = benefit;
-                benefitsList.appendChild(li);
-            });
+            if (benefitsList && sData.benefits) {
+                benefitsList.innerHTML = '';
+                sData.benefits.forEach(benefit => {
+                    if (benefit) {
+                        const li = document.createElement('li');
+                        li.textContent = benefit;
+                        benefitsList.appendChild(li);
+                    }
+                });
+            }
 
             // Preencher FAQs
             const faqsContainer = document.getElementById('detail-faqs');
-            faqsContainer.innerHTML = '';
-            servicesData[hash].faqs.forEach(faq => {
-                faqsContainer.innerHTML += `
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>${faq.q}</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>${faq.a}</p>
-                        </div>
-                    </div>
-                `;
-            });
+            if (faqsContainer && sData.faqs) {
+                faqsContainer.innerHTML = '';
+                sData.faqs.forEach(faq => {
+                    if (faq && faq.q) {
+                        faqsContainer.innerHTML += `
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>${faq.q}</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>${faq.a || ''}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+            }
 
             // Lógica do Acordeão para o FAQ gerado
             document.querySelectorAll('.faq-question').forEach(question => {
@@ -593,5 +619,224 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
     injectWhatsAppWidget();
+
+    // =========================================
+    // Carregamento Dinâmico do Conteúdo CMS
+    // =========================================
+    window.addEventListener("message", (event) => {
+        if (event.data && event.data.type === "NUCRE_CMS_PREVIEW") {
+            applyCMSContent(event.data.data);
+        }
+    });
+
+    function applyCMSContent(overrideData = null) {
+        let data = overrideData;
+        if (!data) {
+            const raw = localStorage.getItem("nucre_cms_data");
+            if (!raw) return;
+            try { data = JSON.parse(raw); } catch (e) { return; }
+        }
+        if (!data) return;
+
+        try {
+            const pathName = window.location.pathname.toLowerCase();
+
+            // 1. Index (Início)
+            if (pathName.endsWith("index.html") || pathName.endsWith("/") || pathName === "" || pathName.endsWith("/nucre_site")) {
+                if (data.home) {
+                    // Hero
+                    if (data.home.hero) {
+                        const heroH1 = document.querySelector(".hero-content h1");
+                        if (heroH1 && data.home.hero.title) heroH1.textContent = data.home.hero.title;
+
+                        const heroSub = document.querySelector(".hero-content .subtitle");
+                        if (heroSub && data.home.hero.subtitle) heroSub.textContent = data.home.hero.subtitle;
+
+                        const heroP = document.querySelector(".hero-content p:not(.subtitle)");
+                        if (heroP && data.home.hero.text) heroP.textContent = data.home.hero.text;
+
+                        const slides = document.querySelectorAll(".hero-slide");
+                        if (slides[0] && data.home.hero.img1) slides[0].src = data.home.hero.img1;
+                        if (slides[1] && data.home.hero.img2) slides[1].src = data.home.hero.img2;
+                        if (slides[2] && data.home.hero.img3) slides[2].src = data.home.hero.img3;
+                    }
+
+                    // Pilares Sólidos
+                    if (data.home.pilares) {
+                        const pHeaderH2 = document.querySelector(".features-header h2");
+                        if (pHeaderH2 && data.home.pilares.title) pHeaderH2.textContent = data.home.pilares.title;
+
+                        const pHeaderP = document.querySelector(".features-header p");
+                        if (pHeaderP && data.home.pilares.subtitle) pHeaderP.textContent = data.home.pilares.subtitle;
+
+                        const items = document.querySelectorAll(".features-grid .feature-item");
+                        if (items[0]) {
+                            if (data.home.pilares.p1_title) items[0].querySelector("h3").textContent = data.home.pilares.p1_title;
+                            if (data.home.pilares.p1_text) items[0].querySelector("p").textContent = data.home.pilares.p1_text;
+                        }
+                        if (items[1]) {
+                            if (data.home.pilares.p2_title) items[1].querySelector("h3").textContent = data.home.pilares.p2_title;
+                            if (data.home.pilares.p2_text) items[1].querySelector("p").textContent = data.home.pilares.p2_text;
+                        }
+                        if (items[2]) {
+                            if (data.home.pilares.p3_title) items[2].querySelector("h3").textContent = data.home.pilares.p3_title;
+                            if (data.home.pilares.p3_text) items[2].querySelector("p").textContent = data.home.pilares.p3_text;
+                        }
+                    }
+
+                    // Depoimentos / Feedbacks
+                    if (data.home.feedbacks) {
+                        const fbCards = document.querySelectorAll(".feedbacks-grid .feedback-card");
+                        if (fbCards[0] && data.home.feedbacks.f1_text) fbCards[0].querySelector("p").textContent = data.home.feedbacks.f1_text;
+                        if (fbCards[0] && data.home.feedbacks.f1_name) fbCards[0].querySelector("h4").textContent = data.home.feedbacks.f1_name;
+                        if (fbCards[1] && data.home.feedbacks.f2_text) fbCards[1].querySelector("p").textContent = data.home.feedbacks.f2_text;
+                        if (fbCards[1] && data.home.feedbacks.f2_name) fbCards[1].querySelector("h4").textContent = data.home.feedbacks.f2_name;
+                        if (fbCards[2] && data.home.feedbacks.f3_text) fbCards[2].querySelector("p").textContent = data.home.feedbacks.f3_text;
+                        if (fbCards[2] && data.home.feedbacks.f3_name) fbCards[2].querySelector("h4").textContent = data.home.feedbacks.f3_name;
+                    }
+
+                    // Estatísticas
+                    if (data.home.stats) {
+                        const statCards = document.querySelectorAll(".stats-grid .stat-card");
+                        if (statCards[0]) {
+                            if (data.home.stats.s1_num) statCards[0].querySelector(".stat-number").textContent = data.home.stats.s1_num;
+                            if (data.home.stats.s1_label) statCards[0].querySelector(".stat-label").textContent = data.home.stats.s1_label;
+                        }
+                        if (statCards[1]) {
+                            if (data.home.stats.s2_num) statCards[1].querySelector(".stat-number").textContent = data.home.stats.s2_num;
+                            if (data.home.stats.s2_label) statCards[1].querySelector(".stat-label").textContent = data.home.stats.s2_label;
+                        }
+                        if (statCards[2]) {
+                            if (data.home.stats.s3_num) statCards[2].querySelector(".stat-number").textContent = data.home.stats.s3_num;
+                            if (data.home.stats.s3_label) statCards[2].querySelector(".stat-label").textContent = data.home.stats.s3_label;
+                        }
+                        if (statCards[3]) {
+                            if (data.home.stats.s4_num) statCards[3].querySelector(".stat-number").textContent = data.home.stats.s4_num;
+                            if (data.home.stats.s4_label) statCards[3].querySelector(".stat-label").textContent = data.home.stats.s4_label;
+                        }
+                    }
+
+                    // Home Care
+                    if (data.home.care) {
+                        const careH2 = document.querySelector(".home-care-content h2");
+                        if (careH2 && data.home.care.title) careH2.textContent = data.home.care.title;
+
+                        const careSub = document.querySelector(".home-care-content .subtitle");
+                        if (careSub && data.home.care.subtitle) careSub.textContent = data.home.care.subtitle;
+
+                        const careP = document.querySelector(".home-care-content p:not(.subtitle)");
+                        if (careP && data.home.care.text) careP.textContent = data.home.care.text;
+
+                        const careImg = document.querySelector(".home-care-image img");
+                        if (careImg && data.home.care.img) careImg.src = data.home.care.img;
+                    }
+                }
+            }
+
+            // 2. Nossa Clínica
+            if (pathName.includes("nossa-clinica.html")) {
+                if (data.clinica) {
+                    if (data.clinica.hero) {
+                        const h1 = document.querySelector(".hero-content h1");
+                        if (h1 && data.clinica.hero.title) h1.textContent = data.clinica.hero.title;
+
+                        const sub = document.querySelector(".hero-content .subtitle");
+                        if (sub && data.clinica.hero.subtitle) sub.textContent = data.clinica.hero.subtitle;
+
+                        const p = document.querySelector(".hero-content p:not(.subtitle)");
+                        if (p && data.clinica.hero.text) p.textContent = data.clinica.hero.text;
+
+                        const img = document.querySelector(".hero-image img");
+                        if (img && data.clinica.hero.img) img.src = data.clinica.hero.img;
+                    }
+
+                    if (data.clinica.stats) {
+                        const statsH2 = document.querySelector(".stats-header h2");
+                        if (statsH2 && data.clinica.stats.title) statsH2.textContent = data.clinica.stats.title;
+
+                        const statsP = document.querySelector(".stats-header p");
+                        if (statsP && data.clinica.stats.subtitle) statsP.textContent = data.clinica.stats.subtitle;
+                    }
+                }
+            }
+
+            // 3. Serviços
+            if (data.services) {
+                const cards = document.querySelectorAll(".services-grid .service-card");
+                if (cards[0] && data.services.esp1) {
+                    if (data.services.esp1.title) cards[0].querySelector("h3").textContent = data.services.esp1.title;
+                    if (data.services.esp1.desc) cards[0].querySelector("p").textContent = data.services.esp1.desc;
+                    if (data.services.esp1.img) cards[0].style.backgroundImage = `url('${data.services.esp1.img}')`;
+                }
+                if (cards[1] && data.services.esp2) {
+                    if (data.services.esp2.title) cards[1].querySelector("h3").textContent = data.services.esp2.title;
+                    if (data.services.esp2.desc) cards[1].querySelector("p").textContent = data.services.esp2.desc;
+                    if (data.services.esp2.img) cards[1].style.backgroundImage = `url('${data.services.esp2.img}')`;
+                }
+                if (cards[2] && data.services.esp3) {
+                    if (data.services.esp3.title) cards[2].querySelector("h3").textContent = data.services.esp3.title;
+                    if (data.services.esp3.desc) cards[2].querySelector("p").textContent = data.services.esp3.desc;
+                    if (data.services.esp3.img) cards[2].style.backgroundImage = `url('${data.services.esp3.img}')`;
+                }
+            }
+
+            // 4. Equipe
+            if (pathName.includes("equipe.html") || pathName.includes("index.html")) {
+                if (data.team) {
+                    if (data.team.header) {
+                        const tH2 = document.querySelector(".team-header h2");
+                        if (tH2 && data.team.header.title) tH2.textContent = data.team.header.title;
+
+                        const tP = document.querySelector(".team-header p");
+                        if (tP && data.team.header.desc) tP.textContent = data.team.header.desc;
+                    }
+
+                    // Miniaturas & dados da equipe (5 membros)
+                    const thumbs = document.querySelectorAll(".team-thumbnails img");
+                    const members = ["elton", "ricardo", "andre", "fabio", "joice"];
+                    members.forEach((m, idx) => {
+                        if (thumbs[idx] && data.team[m]) {
+                            if (data.team[m].role) thumbs[idx].setAttribute("data-role", data.team[m].role);
+                            if (data.team[m].bio) thumbs[idx].setAttribute("data-bio", data.team[m].bio);
+                            if (data.team[m].img) {
+                                thumbs[idx].setAttribute("data-image", data.team[m].img);
+                                thumbs[idx].src = data.team[m].img;
+                            }
+                        }
+                    });
+
+                    // Se for o membro atualmente em destaque na página, atualiza elementos de texto
+                    const featuredImg = document.getElementById("featured-image");
+                    const featuredRole = document.getElementById("featured-role");
+                    const featuredBio = document.getElementById("featured-bio");
+                    const activeThumb = document.querySelector(".team-thumbnails img.active");
+                    if (activeThumb) {
+                        if (featuredImg && activeThumb.getAttribute("data-image")) featuredImg.src = activeThumb.getAttribute("data-image");
+                        if (featuredRole && activeThumb.getAttribute("data-role")) featuredRole.textContent = activeThumb.getAttribute("data-role");
+                        if (featuredBio && activeThumb.getAttribute("data-bio")) featuredBio.textContent = activeThumb.getAttribute("data-bio");
+                    }
+                }
+            }
+
+            // 5. Contato
+            if (pathName.includes("contato.html")) {
+                if (data.contact) {
+                    const cH1 = document.querySelector(".hero-content h1");
+                    if (cH1 && data.contact.title) cH1.textContent = data.contact.title;
+
+                    const cP = document.querySelector(".hero-content p");
+                    if (cP && data.contact.subtitle) cP.textContent = data.contact.subtitle;
+
+                    const waBtn = document.querySelector("a[href*='api.whatsapp.com']");
+                    if (waBtn && data.contact.whatsapp) {
+                        waBtn.href = data.contact.whatsapp.startsWith("http") ? data.contact.whatsapp : `https://api.whatsapp.com/send?phone=${data.contact.whatsapp}`;
+                    }
+                }
+            }
+
+        } catch (e) {
+            console.error("Erro ao aplicar dados do CMS:", e);
+        }
+    }
 
 });
