@@ -337,8 +337,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!listSection || !detailSection) return;
 
         if (hash && servicesData[hash]) {
-            let sData = servicesData[hash];
-            const rawCMS = localStorage.getItem("nucre_cms_data");
+            let sData = Object.assign({}, servicesData[hash]);
+            const rawCMS = localStorage.getItem("nucre_site_content") || localStorage.getItem("nucre_cms_data");
             if (rawCMS) {
                 try {
                     const parsedCMS = JSON.parse(rawCMS);
@@ -360,10 +360,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const benefitsList = document.getElementById('detail-benefits');
             if (benefitsList && sData.benefits) {
                 benefitsList.innerHTML = '';
-                sData.benefits.forEach(benefit => {
+                sData.benefits.forEach((benefit, bIdx) => {
                     if (benefit) {
                         const li = document.createElement('li');
                         li.textContent = benefit;
+                        li.setAttribute('data-benefit-index', bIdx);
                         benefitsList.appendChild(li);
                     }
                 });
@@ -373,16 +374,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const faqsContainer = document.getElementById('detail-faqs');
             if (faqsContainer && sData.faqs) {
                 faqsContainer.innerHTML = '';
-                sData.faqs.forEach(faq => {
+                sData.faqs.forEach((faq, fIdx) => {
                     if (faq && faq.q) {
                         faqsContainer.innerHTML += `
-                            <div class="faq-item">
+                            <div class="faq-item" data-faq-index="${fIdx}">
                                 <div class="faq-question">
-                                    <span>${faq.q}</span>
+                                    <span class="faq-question-text">${faq.q}</span>
                                     <span class="faq-icon">+</span>
                                 </div>
                                 <div class="faq-answer">
-                                    <p>${faq.a || ''}</p>
+                                    <p class="faq-answer-text">${faq.a || ''}</p>
                                 </div>
                             </div>
                         `;
@@ -414,6 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             listSection.style.display = 'none';
             detailSection.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             listSection.style.display = 'block';
             detailSection.style.display = 'none';
@@ -621,7 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
     injectWhatsAppWidget();
 
     // =========================================
-    // Carregamento Dinâmico do Conteúdo CMS
+    // Carregamento Dinâmico do Conteúdo CMS (Universal)
     // =========================================
     window.addEventListener("message", (event) => {
         if (event.data && event.data.type === "NUCRE_CMS_PREVIEW") {
@@ -632,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function applyCMSContent(overrideData = null) {
         let data = overrideData;
         if (!data) {
-            const raw = localStorage.getItem("nucre_cms_data");
+            const raw = localStorage.getItem("nucre_site_content") || localStorage.getItem("nucre_cms_data");
             if (!raw) return;
             try { data = JSON.parse(raw); } catch (e) { return; }
         }
@@ -640,127 +642,119 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const pathName = window.location.pathname.toLowerCase();
+            let currentPage = "index.html";
+            if (pathName.includes("nossa-clinica.html")) currentPage = "nossa-clinica.html";
+            else if (pathName.includes("servicos.html")) currentPage = "servicos.html";
+            else if (pathName.includes("equipe.html")) currentPage = "equipe.html";
+            else if (pathName.includes("contato.html")) currentPage = "contato.html";
+            else if (pathName.includes("index.html") || pathName === "" || pathName.endsWith("/") || pathName.endsWith("/nucre_site")) currentPage = "index.html";
 
-            // 1. Index (Início)
-            if (pathName.endsWith("index.html") || pathName.endsWith("/") || pathName === "" || pathName.endsWith("/nucre_site")) {
-                if (data.home) {
-                    // Hero
-                    if (data.home.hero) {
-                        const heroH1 = document.querySelector(".hero-content h1");
-                        if (heroH1 && data.home.hero.title) heroH1.textContent = data.home.hero.title;
+            // 1. Aplicação Universal do Novo Visual Studio Editor (por página)
+            if (data.pages && data.pages[currentPage]) {
+                const pageData = data.pages[currentPage];
+                
+                // Textos
+                if (pageData.texts) {
+                    Object.keys(pageData.texts).forEach(key => {
+                        const val = pageData.texts[key];
+                        try {
+                            let el = null;
+                            if (key.startsWith("#")) {
+                                el = document.getElementById(key.slice(1));
+                            } else if (key.startsWith("data-cms-key=")) {
+                                el = document.querySelector(`[data-cms-key="${key.split('=')[1]}"]`);
+                            } else {
+                                el = document.querySelector(key);
+                            }
+                            if (el && !el.closest("header, .main-header, footer, .main-footer")) {
+                                el.innerHTML = val;
+                            }
+                        } catch (e) {}
+                    });
+                }
 
-                        const heroSub = document.querySelector(".hero-content .subtitle");
-                        if (heroSub && data.home.hero.subtitle) heroSub.textContent = data.home.hero.subtitle;
+                // Imagens
+                if (pageData.images) {
+                    Object.keys(pageData.images).forEach(key => {
+                        const val = pageData.images[key];
+                        try {
+                            let el = null;
+                            if (key.startsWith("#")) {
+                                el = document.getElementById(key.slice(1));
+                            } else if (key.startsWith("data-cms-key=")) {
+                                el = document.querySelector(`[data-cms-key="${key.split('=')[1]}"]`);
+                            } else {
+                                el = document.querySelector(key);
+                            }
+                            if (el && !el.closest("header, .main-header, footer, .main-footer")) {
+                                if (el.tagName && el.tagName.toLowerCase() === "img") {
+                                    el.src = val;
+                                } else {
+                                    el.style.backgroundImage = `url('${val}')`;
+                                }
+                            }
+                        } catch (e) {}
+                    });
+                }
+            }
 
-                        const heroP = document.querySelector(".hero-content p:not(.subtitle)");
-                        if (heroP && data.home.hero.text) heroP.textContent = data.home.hero.text;
+            // 2. Compatibilidade Estruturada Legada (se houver dados legados)
+            if (currentPage === "index.html" && data.home) {
+                if (data.home.hero) {
+                    const heroH1 = document.querySelector(".hero-content h1");
+                    if (heroH1 && data.home.hero.title) heroH1.textContent = data.home.hero.title;
 
-                        const slides = document.querySelectorAll(".hero-slide");
-                        if (slides[0] && data.home.hero.img1) slides[0].src = data.home.hero.img1;
-                        if (slides[1] && data.home.hero.img2) slides[1].src = data.home.hero.img2;
-                        if (slides[2] && data.home.hero.img3) slides[2].src = data.home.hero.img3;
+                    const heroSub = document.querySelector(".hero-content .subtitle");
+                    if (heroSub && data.home.hero.subtitle) heroSub.textContent = data.home.hero.subtitle;
+
+                    const heroP = document.querySelector(".hero-content p:not(.subtitle)");
+                    if (heroP && data.home.hero.text) heroP.textContent = data.home.hero.text;
+
+                    const slides = document.querySelectorAll(".hero-slide");
+                    if (slides[0] && data.home.hero.img1) slides[0].src = data.home.hero.img1;
+                    if (slides[1] && data.home.hero.img2) slides[1].src = data.home.hero.img2;
+                    if (slides[2] && data.home.hero.img3) slides[2].src = data.home.hero.img3;
+                }
+
+                if (data.home.pilares) {
+                    const pHeaderH2 = document.querySelector(".features-header h2");
+                    if (pHeaderH2 && data.home.pilares.title) pHeaderH2.textContent = data.home.pilares.title;
+
+                    const pHeaderP = document.querySelector(".features-header p");
+                    if (pHeaderP && data.home.pilares.subtitle) pHeaderP.textContent = data.home.pilares.subtitle;
+
+                    const items = document.querySelectorAll(".features-grid .feature-item");
+                    if (items[0]) {
+                        if (data.home.pilares.p1_title) items[0].querySelector("h3").textContent = data.home.pilares.p1_title;
+                        if (data.home.pilares.p1_text) items[0].querySelector("p").textContent = data.home.pilares.p1_text;
                     }
-
-                    // Pilares Sólidos
-                    if (data.home.pilares) {
-                        const pHeaderH2 = document.querySelector(".features-header h2");
-                        if (pHeaderH2 && data.home.pilares.title) pHeaderH2.textContent = data.home.pilares.title;
-
-                        const pHeaderP = document.querySelector(".features-header p");
-                        if (pHeaderP && data.home.pilares.subtitle) pHeaderP.textContent = data.home.pilares.subtitle;
-
-                        const items = document.querySelectorAll(".features-grid .feature-item");
-                        if (items[0]) {
-                            if (data.home.pilares.p1_title) items[0].querySelector("h3").textContent = data.home.pilares.p1_title;
-                            if (data.home.pilares.p1_text) items[0].querySelector("p").textContent = data.home.pilares.p1_text;
-                        }
-                        if (items[1]) {
-                            if (data.home.pilares.p2_title) items[1].querySelector("h3").textContent = data.home.pilares.p2_title;
-                            if (data.home.pilares.p2_text) items[1].querySelector("p").textContent = data.home.pilares.p2_text;
-                        }
-                        if (items[2]) {
-                            if (data.home.pilares.p3_title) items[2].querySelector("h3").textContent = data.home.pilares.p3_title;
-                            if (data.home.pilares.p3_text) items[2].querySelector("p").textContent = data.home.pilares.p3_text;
-                        }
+                    if (items[1]) {
+                        if (data.home.pilares.p2_title) items[1].querySelector("h3").textContent = data.home.pilares.p2_title;
+                        if (data.home.pilares.p2_text) items[1].querySelector("p").textContent = data.home.pilares.p2_text;
                     }
-
-                    // Depoimentos / Feedbacks
-                    if (data.home.feedbacks) {
-                        const fbCards = document.querySelectorAll(".feedbacks-grid .feedback-card");
-                        if (fbCards[0] && data.home.feedbacks.f1_text) fbCards[0].querySelector("p").textContent = data.home.feedbacks.f1_text;
-                        if (fbCards[0] && data.home.feedbacks.f1_name) fbCards[0].querySelector("h4").textContent = data.home.feedbacks.f1_name;
-                        if (fbCards[1] && data.home.feedbacks.f2_text) fbCards[1].querySelector("p").textContent = data.home.feedbacks.f2_text;
-                        if (fbCards[1] && data.home.feedbacks.f2_name) fbCards[1].querySelector("h4").textContent = data.home.feedbacks.f2_name;
-                        if (fbCards[2] && data.home.feedbacks.f3_text) fbCards[2].querySelector("p").textContent = data.home.feedbacks.f3_text;
-                        if (fbCards[2] && data.home.feedbacks.f3_name) fbCards[2].querySelector("h4").textContent = data.home.feedbacks.f3_name;
-                    }
-
-                    // Estatísticas
-                    if (data.home.stats) {
-                        const statCards = document.querySelectorAll(".stats-grid .stat-card");
-                        if (statCards[0]) {
-                            if (data.home.stats.s1_num) statCards[0].querySelector(".stat-number").textContent = data.home.stats.s1_num;
-                            if (data.home.stats.s1_label) statCards[0].querySelector(".stat-label").textContent = data.home.stats.s1_label;
-                        }
-                        if (statCards[1]) {
-                            if (data.home.stats.s2_num) statCards[1].querySelector(".stat-number").textContent = data.home.stats.s2_num;
-                            if (data.home.stats.s2_label) statCards[1].querySelector(".stat-label").textContent = data.home.stats.s2_label;
-                        }
-                        if (statCards[2]) {
-                            if (data.home.stats.s3_num) statCards[2].querySelector(".stat-number").textContent = data.home.stats.s3_num;
-                            if (data.home.stats.s3_label) statCards[2].querySelector(".stat-label").textContent = data.home.stats.s3_label;
-                        }
-                        if (statCards[3]) {
-                            if (data.home.stats.s4_num) statCards[3].querySelector(".stat-number").textContent = data.home.stats.s4_num;
-                            if (data.home.stats.s4_label) statCards[3].querySelector(".stat-label").textContent = data.home.stats.s4_label;
-                        }
-                    }
-
-                    // Home Care
-                    if (data.home.care) {
-                        const careH2 = document.querySelector(".home-care-content h2");
-                        if (careH2 && data.home.care.title) careH2.textContent = data.home.care.title;
-
-                        const careSub = document.querySelector(".home-care-content .subtitle");
-                        if (careSub && data.home.care.subtitle) careSub.textContent = data.home.care.subtitle;
-
-                        const careP = document.querySelector(".home-care-content p:not(.subtitle)");
-                        if (careP && data.home.care.text) careP.textContent = data.home.care.text;
-
-                        const careImg = document.querySelector(".home-care-image img");
-                        if (careImg && data.home.care.img) careImg.src = data.home.care.img;
+                    if (items[2]) {
+                        if (data.home.pilares.p3_title) items[2].querySelector("h3").textContent = data.home.pilares.p3_title;
+                        if (data.home.pilares.p3_text) items[2].querySelector("p").textContent = data.home.pilares.p3_text;
                     }
                 }
             }
 
-            // 2. Nossa Clínica
-            if (pathName.includes("nossa-clinica.html")) {
-                if (data.clinica) {
-                    if (data.clinica.hero) {
-                        const h1 = document.querySelector(".hero-content h1");
-                        if (h1 && data.clinica.hero.title) h1.textContent = data.clinica.hero.title;
+            if (currentPage === "nossa-clinica.html" && data.clinica) {
+                if (data.clinica.hero) {
+                    const h1 = document.querySelector(".hero-content h1");
+                    if (h1 && data.clinica.hero.title) h1.textContent = data.clinica.hero.title;
 
-                        const sub = document.querySelector(".hero-content .subtitle");
-                        if (sub && data.clinica.hero.subtitle) sub.textContent = data.clinica.hero.subtitle;
+                    const sub = document.querySelector(".hero-content .subtitle");
+                    if (sub && data.clinica.hero.subtitle) sub.textContent = data.clinica.hero.subtitle;
 
-                        const p = document.querySelector(".hero-content p:not(.subtitle)");
-                        if (p && data.clinica.hero.text) p.textContent = data.clinica.hero.text;
+                    const p = document.querySelector(".hero-content p:not(.subtitle)");
+                    if (p && data.clinica.hero.text) p.textContent = data.clinica.hero.text;
 
-                        const img = document.querySelector(".hero-image img");
-                        if (img && data.clinica.hero.img) img.src = data.clinica.hero.img;
-                    }
-
-                    if (data.clinica.stats) {
-                        const statsH2 = document.querySelector(".stats-header h2");
-                        if (statsH2 && data.clinica.stats.title) statsH2.textContent = data.clinica.stats.title;
-
-                        const statsP = document.querySelector(".stats-header p");
-                        if (statsP && data.clinica.stats.subtitle) statsP.textContent = data.clinica.stats.subtitle;
-                    }
+                    const img = document.querySelector(".hero-image img");
+                    if (img && data.clinica.hero.img) img.src = data.clinica.hero.img;
                 }
             }
 
-            // 3. Serviços
             if (data.services) {
                 const cards = document.querySelectorAll(".services-grid .service-card");
                 if (cards[0] && data.services.esp1) {
@@ -780,60 +774,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // 4. Equipe
-            if (pathName.includes("equipe.html") || pathName.includes("index.html")) {
-                if (data.team) {
-                    if (data.team.header) {
-                        const tH2 = document.querySelector(".team-header h2");
-                        if (tH2 && data.team.header.title) tH2.textContent = data.team.header.title;
+            if ((currentPage === "equipe.html" || currentPage === "index.html") && data.team) {
+                if (data.team.header) {
+                    const tH2 = document.querySelector(".team-header h2");
+                    if (tH2 && data.team.header.title) tH2.textContent = data.team.header.title;
 
-                        const tP = document.querySelector(".team-header p");
-                        if (tP && data.team.header.desc) tP.textContent = data.team.header.desc;
-                    }
+                    const tP = document.querySelector(".team-header p");
+                    if (tP && data.team.header.desc) tP.textContent = data.team.header.desc;
+                }
 
-                    // Miniaturas & dados da equipe (5 membros)
-                    const thumbs = document.querySelectorAll(".team-thumbnails img");
-                    const members = ["elton", "ricardo", "andre", "fabio", "joice"];
-                    members.forEach((m, idx) => {
-                        if (thumbs[idx] && data.team[m]) {
-                            if (data.team[m].role) thumbs[idx].setAttribute("data-role", data.team[m].role);
-                            if (data.team[m].bio) thumbs[idx].setAttribute("data-bio", data.team[m].bio);
-                            if (data.team[m].img) {
-                                thumbs[idx].setAttribute("data-image", data.team[m].img);
-                                thumbs[idx].src = data.team[m].img;
-                            }
+                const thumbs = document.querySelectorAll(".team-thumbnails img");
+                const members = ["elton", "ricardo", "andre", "fabio", "joice"];
+                members.forEach((m, idx) => {
+                    if (thumbs[idx] && data.team[m]) {
+                        if (data.team[m].role) thumbs[idx].setAttribute("data-role", data.team[m].role);
+                        if (data.team[m].bio) thumbs[idx].setAttribute("data-bio", data.team[m].bio);
+                        if (data.team[m].img) {
+                            thumbs[idx].setAttribute("data-image", data.team[m].img);
+                            thumbs[idx].src = data.team[m].img;
                         }
-                    });
-
-                    // Se for o membro atualmente em destaque na página, atualiza elementos de texto
-                    const featuredImg = document.getElementById("featured-image");
-                    const featuredRole = document.getElementById("featured-role");
-                    const featuredBio = document.getElementById("featured-bio");
-                    const activeThumb = document.querySelector(".team-thumbnails img.active");
-                    if (activeThumb) {
-                        if (featuredImg && activeThumb.getAttribute("data-image")) featuredImg.src = activeThumb.getAttribute("data-image");
-                        if (featuredRole && activeThumb.getAttribute("data-role")) featuredRole.textContent = activeThumb.getAttribute("data-role");
-                        if (featuredBio && activeThumb.getAttribute("data-bio")) featuredBio.textContent = activeThumb.getAttribute("data-bio");
                     }
-                }
+                });
             }
 
-            // 5. Contato
-            if (pathName.includes("contato.html")) {
-                if (data.contact) {
-                    const cH1 = document.querySelector(".hero-content h1");
-                    if (cH1 && data.contact.title) cH1.textContent = data.contact.title;
+            if (currentPage === "contato.html" && data.contact) {
+                const cH1 = document.querySelector(".hero-content h1");
+                if (cH1 && data.contact.title) cH1.textContent = data.contact.title;
 
-                    const cP = document.querySelector(".hero-content p");
-                    if (cP && data.contact.subtitle) cP.textContent = data.contact.subtitle;
+                const cP = document.querySelector(".hero-content p");
+                if (cP && data.contact.subtitle) cP.textContent = data.contact.subtitle;
 
-                    const waBtn = document.querySelector("a[href*='api.whatsapp.com']");
-                    if (waBtn && data.contact.whatsapp) {
-                        waBtn.href = data.contact.whatsapp.startsWith("http") ? data.contact.whatsapp : `https://api.whatsapp.com/send?phone=${data.contact.whatsapp}`;
-                    }
+                const waBtn = document.querySelector("a[href*='api.whatsapp.com']");
+                if (waBtn && data.contact.whatsapp) {
+                    waBtn.href = data.contact.whatsapp.startsWith("http") ? data.contact.whatsapp : `https://api.whatsapp.com/send?phone=${data.contact.whatsapp}`;
                 }
             }
-
         } catch (e) {
             console.error("Erro ao aplicar dados do CMS:", e);
         }
