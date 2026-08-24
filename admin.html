@@ -51,77 +51,80 @@
                     <span class="admin-studio-badge">Live Editor</span>
                 </a>
 
-                <!-- Seletor de Páginas com Dropdown de Serviços e Terapias -->
+                <!-- Seletor de Páginas -->
                 <nav class="admin-page-nav">
-                    <button type="button" class="admin-page-btn active" data-page="index.html">🏠 Início</button>
-                    <button type="button" class="admin-page-btn" data-page="nossa-clinica.html">🏥 Nossa Clínica</button>
-                    
-                    <div class="admin-dropdown">
-                        <button type="button" class="admin-page-btn" data-page="servicos.html">🩺 Serviços & Terapias ▾</button>
-                        <div class="admin-dropdown-menu">
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html">📋 Visão Geral de Todos os Serviços</button>
-                            
-                            <div class="admin-dropdown-header">🏃 Serviços Especializados</div>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#fisioterapia-esportiva">Reabilitação de Lesões Esportivas</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#pos-operatorios-complexos">Pós-Operatórios Complexos</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#qualidade-de-vida">Longevidade e Qualidade de Vida</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#prevencao-de-lesoes">Prevenção de Lesões</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#reabilitacao-com-eletroterapia">Reabilitação com Eletroterapia</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#reabilitacao-com-instrumentos">Reabilitação com Instrumentos</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#recovery">Recovery</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#ventosaterapia">Ventosaterapia</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#miofibrolise-percutanea">Miofibrólise Percutânea</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#ozonioterapia">Ozonioterapia</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#dry-needling">Dry Needling</button>
-
-                            <div class="admin-dropdown-header">👐 Terapias Manuais</div>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#osteopatia">Osteopatia</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#maitland">Maitland</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#mulligan">Mulligan</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#kabat">Kabat</button>
-                            <button type="button" class="admin-dropdown-item" data-page="servicos.html#liberacoes-miofasciais">Liberações Miofasciais</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="admin-page-btn" data-page="equipe.html">👥 Equipe</button>
-                    <button type="button" class="admin-page-btn" data-page="contato.html">✉️ Contato</button>
+                    <button type="button" class="admin-page-btn active" data-page="index.html">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        Início
+                    </button>
+                    <button type="button" class="admin-page-btn" data-page="nossa-clinica.html">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.1 0-2 .9-2 2v18h18V4c0-1.1-.9-2-2-2zm-8 16H7v-2h4v2zm0-4H7v-2h4v2zm0-4H7V8h4v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+                        Nossa Clínica
+                    </button>
+                    <button type="button" class="admin-page-btn" data-page="servicos.html">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                        Serviços
+                    </button>
+                    <button type="button" class="admin-page-btn" data-page="equipe.html">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        Equipe
+                    </button>
+                    <button type="button" class="admin-page-btn" data-page="contato.html">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Contato
+                    </button>
                 </nav>
             </div>
 
             <!-- Controles de Dispositivo (Desktop / Tablet / Mobile) -->
             <div class="admin-studio-center">
                 <div class="admin-device-switcher">
-                    <button type="button" class="active" data-device="desktop" title="Visualização Desktop">🖥️ Desktop</button>
-                    <button type="button" data-device="tablet" title="Visualização Tablet (768px)">💻 Tablet</button>
-                    <button type="button" data-device="mobile" title="Visualização Mobile (380px)">📱 Mobile</button>
+                    <button type="button" class="active" data-device="desktop" title="Visualização Desktop">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
+                        Desktop
+                    </button>
+                    <button type="button" data-device="tablet" title="Visualização Tablet (768px)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm7-4H5V4h14v12z"/></svg>
+                        Tablet
+                    </button>
+                    <button type="button" data-device="mobile" title="Visualização Mobile (380px)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                        Mobile
+                    </button>
                 </div>
             </div>
 
             <!-- Ações e Salvamento -->
             <div class="admin-studio-right">
                 <button id="btn-save-cms" type="button" class="admin-btn-save">
-                    💾 <span id="btn-save-text">Salvar Alterações</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+                    <span id="btn-save-text">Salvar Alterações</span>
                 </button>
 
                 <a id="btn-open-live-site" href="index.html" target="_blank" class="admin-btn-secondary" title="Ver site público em nova aba">
-                    👁️ Ver Site
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    Ver Site
                 </a>
 
                 <button id="btn-export-json" type="button" class="admin-btn-secondary" title="Baixar backup de todas as alterações em JSON">
-                    📥 Backup
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Backup
                 </button>
 
                 <label for="input-import-json" class="admin-btn-secondary" style="cursor: pointer;" title="Restaurar backup a partir de um arquivo JSON">
-                    📤 Restaurar
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                    Restaurar
                 </label>
                 <input type="file" id="input-import-json" accept=".json" style="display: none;">
 
                 <button id="btn-reset-default" type="button" class="admin-btn-secondary" style="color: #fda4af;" title="Restaurar conteúdo original de fábrica">
-                    🔄 Resetar
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    Resetar
                 </button>
 
                 <button id="btn-logout" type="button" class="admin-btn-danger" title="Sair do modo administrativo">
-                    🚪 Sair
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                    Sair
                 </button>
             </div>
         </header>
@@ -143,7 +146,8 @@
                 Dê <b>2 cliques no texto</b> para editar &bull; Dê <b>2 cliques na imagem</b> para trocar
             </div>
             <div class="lock-note">
-                🔒 Cabeçalho e Rodapé protegidos
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                Cabeçalho e Rodapé protegidos
             </div>
         </div>
 
@@ -153,13 +157,18 @@
     <div id="admin-img-modal" class="admin-modal-overlay">
         <div class="admin-modal-card">
             <div class="admin-modal-header">
-                <h3>🖼️ Substituir Imagem</h3>
+                <h3>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    Substituir Imagem
+                </h3>
                 <button type="button" id="admin-img-modal-close" class="admin-modal-close">&times;</button>
             </div>
 
             <!-- Upload por Drag & Drop ou Arquivo Local -->
             <div id="admin-upload-zone" class="admin-upload-zone">
-                <div class="admin-upload-zone-icon">📁</div>
+                <div class="admin-upload-zone-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                </div>
                 <p><b>Clique para escolher uma foto</b> ou arraste o arquivo até aqui</p>
                 <span style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px; display: block;">Formatos suportados: JPG, PNG, WebP, GIF (Máx: 4MB)</span>
                 <input type="file" id="admin-modal-file-input" accept="image/*" style="display: none;">
@@ -186,7 +195,7 @@
 
     <!-- Toast de Notificação -->
     <div id="admin-toast" class="admin-toast">
-        <span>✨ Alterações salvas com sucesso!</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;"><path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/></svg>Alterações salvas com sucesso!</span>
     </div>
 
     <script src="admin.js"></script>

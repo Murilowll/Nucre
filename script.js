@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'fisioterapia-esportiva': {
             title: 'Reabilitação de Lesões Esportivas',
             description: 'Seja você um atleta profissional de alto rendimento ou um praticante de atividades físicas recreativas, nossa equipe está preparada para acelerar o seu retorno seguro ao esporte (return-to-play). Atuamos na fase aguda e crônica de lesões musculares, tendíneas e ligamentares, associando o manejo da dor ao restabelecimento da potência, flexibilidade e estabilidade articular.',
-            image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.35 (1).jpeg',
             benefits: [
                 'Acelera o tempo de recuperação dos músculos, ligamentos, tendões e outras partes do corpo',
                 'Reduz significativamente a dor e processos inflamatórios',
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'pos-operatorios-complexos': {
             title: 'Pós-Operatórios Complexos',
             description: 'A reabilitação pós-cirúrgica (ortopédica e traumatológica) exige precisão cronológica para respeitar os tempos biológicos de cicatrização tecidual. Atendemos pacientes pós-artroscopias, reconstruções ligamentares (como LCA), artroplastias (próteses), cirurgias de coluna e diversos outros tipos de cirurgias; minimizando aderências cicatriciais, controlando o processo inflamatório e devolvendo a funcionalidade plena de forma gradual e segura.',
-            image: 'https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34 (2).jpeg',
             benefits: [
                 'Respeito rigoroso aos tempos biológicos de cicatrização tecidual',
                 'Prevenção e eliminação de aderências cicatriciais e contraturas musculares',
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'qualidade-de-vida': {
             title: 'Longevidade e Qualidade de Vida',
             description: 'A fisioterapia vai muito além do tratamento da dor aguda; ela é uma ferramenta de preservação funcional. Desenvolvemos programas focados na melhoria da mobilidade, alívio de tensões crônicas, correção de desequilíbrios biomecânicos e prevenção de lesões, permitindo que nossos pacientes desfrutem de uma rotina ativa, independente e com máxima vitalidade.',
-            image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34 (3).jpeg',
             benefits: [
                 'Aumento expressivo da mobilidade articular e flexibilidade muscular',
                 'Alívio duradouro de dores e tensões crônicas no corpo',
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'prevencao-de-lesoes': {
             title: 'Prevenção de Lesões',
             description: 'Qualquer tipo de lesão, além de causar um grande desconforto para o paciente, pode deixar a pessoa afastada de suas atividades diárias por semanas ou meses, impactando a saúde física e emocional. A prevenção é a melhor forma de manter-se ativo e saudável por muito mais tempo. O trabalho de prevenção de lesões do NUCRE se inicia por meio de uma avaliação terapêutica completa e com uma elaboração de exercícios específicos para as principais articulações e grupos musculares exigidos na sua rotina.',
-            image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Relaxa profundamente a musculatura e alivia pontos de tensão',
                 'Aumenta a flexibilidade, a mobilidade e a disposição geral',
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'reabilitacao-com-eletroterapia': {
             title: 'Reabilitação com Eletroterapia',
             description: 'A Eletroterapia atua principalmente no tratamento de dores musculares crônicas, atrofia muscular, recuperação de massa muscular e da função dos nervos, lombalgia, tendinite, fibrose e processos inflamatórios, além de reduzir o ácido lático em 25% através de estímulos elétricos. No NUCRE, utilizamos o Compex Wireless, um equipamento suíço de ponta sem fio que estimula diretamente o neurônio motor para acelerar o ganho de força e a cicatrização dos tecidos de forma extremamente eficiente.',
-            image: 'https://images.unsplash.com/photo-1588286840104-b44d137ba478?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Fortalecimento muscular e ativação motora acelerada',
                 'Redução rápida de dores agudas e crônicas',
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'reabilitacao-com-instrumentos': {
             title: 'Reabilitação com Instrumentos',
             description: 'A reabilitação com instrumentos utiliza ferramentas especializadas para realizar tratamentos profundos e direcionados nos tecidos moles, acelerando o reparo tecidual, liberando aderências miofasciais e estimulando o fluxo sanguíneo local. Essa modalidade é essencial para reabilitar restrições de movimento e aliviar dores persistentes através de técnicas de fisioterapia instrumental avançadas.',
-            image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Liberação miofascial profunda e restauração da fáscia muscular',
                 'Aumento da circulação e oxigenação sanguínea no local lesionado',
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'recovery': {
             title: 'Recovery',
             description: 'As botas pneumáticas por compressão (Recovery) são um excelente recurso para ajudar atletas na recuperação de lesões ou reabilitação de cirurgias. Através de compressão sequencial por ar comprimido em pernas, braços e quadris, o tratamento estimula o fluxo de sangue, remove metabólitos e acelebra drasticamente o restabelecimento da performance esportiva de alto nível.',
-            image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Estimulação profunda do retorno venoso e melhora da circulação',
                 'Redução de edemas e inchaços provocados por microlesões de treinos',
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'terapias-manuais': {
             title: 'Terapias Manuais',
             description: 'As Terapias Manuais consistem em técnicas especializadas de mobilização e manipulação articular aplicadas diretamente pelas mãos do fisioterapeuta. O objetivo principal é atuar sobre as disfunções articulares e fasciais, restaurando a mecânica natural do corpo, diminuindo a rigidez articular e promovendo o alívio imediato das dores agudas.',
-            image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.35 (3).jpeg',
             benefits: [
                 'Alinhamento e posicionamento articular imediato',
                 'Redução drástica da rigidez e restauração da amplitude de movimento',
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'osteopatia': {
             title: 'Osteopatia',
             description: 'A Osteopatia é uma abordagem terapêutica global que foca no tratamento do corpo de forma integrada, com ênfase especial na manipulação física do sistema musculoesquelético (músculos, ossos, articulações e ligamentos). O princípio fundamental da osteopatia é que a saúde de um indivíduo depende do alinhamento e do funcionamento harmônico de toda a sua estrutura corporal, permitindo que o organismo ative sua capacidade de autocura.',
-            image: 'assets/img/clinic-osteopatia.jpg',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.33.jpeg',
             benefits: [
                 'Alívio significativo de dores na coluna (cervicalgia, lombalgia, hérnia de disco)',
                 'Redução de dores de cabeça tensionais e enxaquecas',
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'maitland': {
             title: 'Maitland',
             description: 'O Método Maitland (ou Conceito Maitland) é uma das abordagens mais respeitadas e utilizadas na fisioterapia manual ortopédica no mundo. Criado na década de 1960, o método foca na avaliação minuciosa e no tratamento de disfunções da coluna vertebral e das articulações periféricas (braços e pernas) através de movimentos passivos oscilatórios graduados, promovendo alívio da dor e ganho de amplitude de movimento.',
-            image: 'assets/img/clinic-maitland.jpg',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34.jpeg',
             benefits: [
                 'Alívio de dores agudas e crônicas na coluna vertebral e articulações',
                 'Ganho rápido de amplitude de movimento e alongamento de ligamentos rígidos',
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'mulligan': {
             title: 'Mulligan',
             description: 'O Método Mulligan baseia-se na premissa de que pequenas falhas no alinhamento de uma articulação (chamadas de falhas posicionais) após lesões ou desgastes podem causar dor crônica e limitação física. O método utiliza o conceito de Mobilização com Movimento (MWM): o fisioterapeuta aplica um deslizamento manual contínuo na articulação para corrigir esse microdesalinhamento enquanto o paciente realiza ativamente o movimento que antes era doloroso, eliminando a dor imediatamente.',
-            image: 'assets/img/clinic-mulligan.jpg',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.35 (2).jpeg',
             benefits: [
                 'Restauração imediata e indolor da amplitude natural de movimento',
                 'Tratamento altamente eficaz para cervicalgias, lombalgias e torcicolos',
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'ventosaterapia': {
             title: 'Ventosaterapia',
             description: 'A Ventosaterapia é uma técnica milenar que utiliza copos (ventosas) sobre a pele para criar um vácuo. Esse vácuo gera uma força de sucção que puxa a pele e os tecidos musculares superficiais para dentro do copo. Embora seja muito associada à Medicina Tradicional Chinesa, a técnica também era usada no Antigo Egito e na Grécia Antiga. Hoje, ela é amplamente utilizada por fisioterapeutas, massoterapeutas e atletas para alívio de dores musculares e melhora da circulação.',
-            image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Aumento da circulação local: A sucção dilata os vasos sanguíneos, trazendo mais sangue oxigenado e nutrientes para a área tratada.',
                 'Liberação miofascial: O vácuo ajuda a "descolar" e relaxar a fáscia (a capa de tecido conjuntivo que envolve os músculos), reduzindo a rigidez e a tensão.',
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'miofibrolise-percutanea': {
             title: 'Miofibrólise Percutânea',
             description: 'A Miofibrólise Percutânea, popularmente conhecida como Crochetagem Mioaponeurótica ou Diafibrólise Percutânea, é uma técnica de terapia manual instrumentalizada. Desenvolvida na década de 1970 pelo fisioterapeuta sueco Kurt Ekman (colaborador do Dr. James Cyriax), ela surgiu da percepção de que os dedos humanos muitas vezes não alcançam a profundidade necessária ou não isolam com precisão as restrições entre as camadas de tecidos. Para isso, utilizam-se ganchos (crochets) de aço inoxidável ou poliamida com curvaturas e tamanhos variados.',
-            image: 'https://images.unsplash.com/photo-1662991040523-9585a0653d9e?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Efeito Mecânico: Rompe fibras colágenas desorganizadas e cicatrizes que grudam um músculo no outro, devolvendo o deslizamento fisiológico entre as fáscias.',
                 'Efeito Circulatório: Gera uma hiperemia profunda (aumento do fluxo sanguíneo local) e estimula a circulação linfática, acelerando a reabsorção de edemas.',
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'ozonioterapia': {
             title: 'Ozonioterapia',
             description: 'A Ozonioterapia é uma abordagem terapêutica baseada na administração de uma mistura gasosa de oxigênio-ozônio (O2-O3), obtida através de um gerador de descarga de alta voltagem (efeito Corona) a partir de oxigênio medicinal puro. O ozônio (O3) atua como um indutor de estresse oxidativo controlado (eustresse). Ao entrar em contato com os fluidos biológicos, ele reage instantaneamente com ácidos graxos poli-insaturados (PUFAs) e compostos antioxidantes locais, ativando vias de sinalização celular fundamentais, modulando o sistema antioxidante endógeno (via Nrf2), atenuando cascatas inflamatórias e otimizando a liberação de oxigênio para os tecidos.',
-            image: 'assets/img/clinic-ozonioterapia.png',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34 (1).jpeg',
             benefits: [
                 'Modulação do Nrf2: Induz a transcrição de enzimas antioxidantes endógenas (superóxido dismutase, catalase, glutationa peroxidase).',
                 'Inibição do NF-κB: Atenua a cascata pró-inflamatória, reduzindo a liberação de citocinas inflamatórias (TNF-α, IL-1β e IL-6).',
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'dry-needling': {
             title: 'Dry Needling',
             description: 'O Dry Needling (ou agulhamento a seco) é uma técnica que utiliza agulhas ultrafinas — idênticas às da acupuntura — para desativar pontos-gatilho (trigger points), que são aqueles nós rígidos e dolorosos que se formam nos músculos tensionados. Ao contrário da acupuntura tradicional, o dry needling se baseia puramente na anatomia humana e na neurofisiologia. A agulha penetra na pele até o músculo para quebrar esse ciclo de dor, gerando uma resposta de relaxamento muscular quase imediata.',
-            image: 'assets/img/clinic-dry-needling.png',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Desativação rápida de pontos-gatilho (trigger points) e nós de tensão muscular.',
                 'Alívio imediato e duradouro de dores miofasciais e torcicolos.',
@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'kabat': {
             title: 'Kabat',
             description: 'O Método Kabat, também conhecido como Facilitação Neuromuscular Proprioceptiva (FNP), é uma abordagem terapêutica que utiliza padrões de movimentos diagonais e espirais associados a estímulos sensoriais (táteis, visuais e verbais). O objetivo é facilitar e melhorar a resposta neuromuscular, promovendo o ganho de força, flexibilidade, coordenação e estabilidade articular. É amplamente indicado tanto na reabilitação neurológica quanto na ortopédica.',
-            image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/placeholder-green.svg',
             benefits: [
                 'Melhora significativa da coordenação motora e do equilíbrio corporal',
                 'Ganho rápido de força muscular através de facilitação proprioceptiva',
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'liberacoes-miofasciais': {
             title: 'Liberações Miofasciais',
             description: 'A Liberação Miofascial é uma técnica manual altamente especializada que foca na fáscia muscular (o tecido conjuntivo que envolve e conecta todos os músculos e órgãos). Através de pressões manuais lentas e direcionadas, o terapeuta elimina restrições fasciais, desfaz aderências e desativa pontos-gatilho dolorosos. O resultado é o alívio imediato da tensão muscular, melhora da circulação local e restauração completa da amplitude de movimento.',
-            image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=800',
+            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.33 (1).jpeg',
             benefits: [
                 'Alívio imediato de tensões musculares agudas e crônicas',
                 'Restauração da flexibilidade e da elasticidade da fáscia',
@@ -563,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="whatsapp-widget">
                 <div class="whatsapp-popup" id="whatsapp-popup">
                     <div class="whatsapp-popup-header">
-                        <div class="whatsapp-avatar">💬</div>
+                        <div class="whatsapp-avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
                         <div class="whatsapp-header-info">
                             <h4>Atendimento Nucre</h4>
                             <p>Online • Resposta rápida</p>
@@ -574,14 +574,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>Olá! Escolha a unidade para iniciar o contato no WhatsApp:</p>
                         <div class="whatsapp-buttons">
                             <a href="https://api.whatsapp.com/send?phone=5511973165620&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20a%20unidade%20de%20S%C3%A3o%20Paulo." target="_blank" class="whatsapp-btn-option">
-                                <span class="btn-option-icon">🏢</span>
+                                <span class="btn-option-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.1 0-2 .9-2 2v18h18V4c0-1.1-.9-2-2-2zm-8 16H7v-2h4v2zm0-4H7v-2h4v2zm0-4H7V8h4v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg></span>
                                 <div class="btn-option-text">
                                     <strong>São Paulo - Capital</strong>
                                     <span>Clínica no Planalto Paulista</span>
                                 </div>
                             </a>
                             <a href="https://api.whatsapp.com/send?phone=5511973165620&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20domiciliar%20em%20Itupeva%20e%20Indaiatuba." target="_blank" class="whatsapp-btn-option">
-                                <span class="btn-option-icon">🏠</span>
+                                <span class="btn-option-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
                                 <div class="btn-option-text">
                                     <strong>Itupeva e Indaiatuba</strong>
                                     <span>Fisioterapia Home Care (Domiciliar)</span>
@@ -644,7 +644,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const pathName = window.location.pathname.toLowerCase();
             let currentPage = "index.html";
             if (pathName.includes("nossa-clinica.html")) currentPage = "nossa-clinica.html";
-            else if (pathName.includes("servicos.html")) currentPage = "servicos.html";
             else if (pathName.includes("equipe.html")) currentPage = "equipe.html";
             else if (pathName.includes("contato.html")) currentPage = "contato.html";
             else if (pathName.includes("index.html") || pathName === "" || pathName.endsWith("/") || pathName.endsWith("/nucre_site")) currentPage = "index.html";
@@ -657,6 +656,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (pageData.texts) {
                     Object.keys(pageData.texts).forEach(key => {
                         const val = pageData.texts[key];
+                        // Ignora textos legados dos antigos 3 cards salvos em cache
+                        if (val && (val.includes("Reabilitação de Lesões Esportivas") || val.includes("Pós-Operatórios Complexos") || val.includes("Longevidade e Qualidade de Vida") || val.includes("Seja você um atleta") || val.includes("A reabilitação pós-cirúrgica") || val.includes("A fisioterapia vai muito além"))) return;
                         try {
                             let el = null;
                             if (key.startsWith("#")) {
@@ -677,6 +678,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (pageData.images) {
                     Object.keys(pageData.images).forEach(key => {
                         const val = pageData.images[key];
+                        // Ignora imagens legadas do unsplash salvas em cache
+                        if (val && val.includes("unsplash.com")) return;
                         try {
                             let el = null;
                             if (key.startsWith("#")) {
@@ -698,6 +701,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
+            // Limpa dados legados de services salvos anteriormente
+            if (data.services) {
+                delete data.services;
+                try {
+                    localStorage.setItem("nucre_site_content", JSON.stringify(data));
+                } catch(e) {}
+            }
+
             // 2. Compatibilidade Estruturada Legada (se houver dados legados)
             if (currentPage === "index.html" && data.home) {
                 if (data.home.hero) {
@@ -709,11 +720,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const heroP = document.querySelector(".hero-content p:not(.subtitle)");
                     if (heroP && data.home.hero.text) heroP.textContent = data.home.hero.text;
-
-                    const slides = document.querySelectorAll(".hero-slide");
-                    if (slides[0] && data.home.hero.img1) slides[0].src = data.home.hero.img1;
-                    if (slides[1] && data.home.hero.img2) slides[1].src = data.home.hero.img2;
-                    if (slides[2] && data.home.hero.img3) slides[2].src = data.home.hero.img3;
                 }
 
                 if (data.home.pilares) {
@@ -755,25 +761,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            if (data.services) {
-                const cards = document.querySelectorAll(".services-grid .service-card");
-                if (cards[0] && data.services.esp1) {
-                    if (data.services.esp1.title) cards[0].querySelector("h3").textContent = data.services.esp1.title;
-                    if (data.services.esp1.desc) cards[0].querySelector("p").textContent = data.services.esp1.desc;
-                    if (data.services.esp1.img) cards[0].style.backgroundImage = `url('${data.services.esp1.img}')`;
-                }
-                if (cards[1] && data.services.esp2) {
-                    if (data.services.esp2.title) cards[1].querySelector("h3").textContent = data.services.esp2.title;
-                    if (data.services.esp2.desc) cards[1].querySelector("p").textContent = data.services.esp2.desc;
-                    if (data.services.esp2.img) cards[1].style.backgroundImage = `url('${data.services.esp2.img}')`;
-                }
-                if (cards[2] && data.services.esp3) {
-                    if (data.services.esp3.title) cards[2].querySelector("h3").textContent = data.services.esp3.title;
-                    if (data.services.esp3.desc) cards[2].querySelector("p").textContent = data.services.esp3.desc;
-                    if (data.services.esp3.img) cards[2].style.backgroundImage = `url('${data.services.esp3.img}')`;
-                }
-            }
-
             if ((currentPage === "equipe.html" || currentPage === "index.html") && data.team) {
                 if (data.team.header) {
                     const tH2 = document.querySelector(".team-header h2");
@@ -809,6 +796,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     waBtn.href = data.contact.whatsapp.startsWith("http") ? data.contact.whatsapp : `https://api.whatsapp.com/send?phone=${data.contact.whatsapp}`;
                 }
             }
+            // Sanitização final de títulos de pilares
+            document.querySelectorAll(".features-grid .feature-item h3").forEach(h3 => {
+                if (h3) {
+                    h3.textContent = h3.textContent.replace(/^[0-9]+\)\s*/, '');
+                }
+            });
         } catch (e) {
             console.error("Erro ao aplicar dados do CMS:", e);
         }

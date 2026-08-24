@@ -731,6 +731,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
+
+        // Sanitiza títulos de pilares contra prefixos antigos
+        doc.querySelectorAll(".features-grid .feature-item h3").forEach(h3 => {
+            if (h3) {
+                h3.textContent = h3.textContent.replace(/^[0-9]+\)\s*/, '');
+            }
+        });
     }
 
     function markDirty() {
@@ -766,7 +773,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Sincroniza também para compatibilidade
             localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(siteData));
             clearDirty();
-            showToast("✨ Alterações salvas com sucesso! O site público está atualizado.");
+            showToast("Alterações salvas com sucesso! O site público está atualizado.");
         } catch (e) {
             alert("Erro ao salvar dados no armazenamento local: " + e.message);
         }
@@ -787,7 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
 
-            showToast("📥 Backup JSON gerado e baixado com sucesso!");
+            showToast("Backup JSON gerado e baixado com sucesso!");
         });
     }
 
@@ -805,7 +812,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         siteData = imported;
                         saveChanges();
                         if (iframe) iframe.src = iframe.src; // recarrega página
-                        showToast("📤 Backup JSON restaurado com sucesso!");
+                        showToast("Backup JSON restaurado com sucesso!");
                     } else {
                         alert("O arquivo JSON selecionado não é válido.");
                     }
@@ -826,7 +833,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 siteData = { pages: {}, servicesDetails: {} };
                 clearDirty();
                 if (iframe) iframe.src = iframe.src;
-                showToast("🔄 Conteúdos restaurados para os padrões originais!");
+                showToast("Conteúdos restaurados para os padrões originais!");
             }
         });
     }
