@@ -609,6 +609,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Smart Header: Esconde ao rolar para baixo, reaparece ao rolar para cima
+    if (header) {
+        let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollThreshold = 10;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Se o menu mobile estiver aberto, mantém o header visível
+            if (navLinks && navLinks.classList.contains('active')) {
+                header.classList.remove('header-hidden');
+                return;
+            }
+
+            // Sempre visível no topo da página
+            if (currentScrollY <= 80) {
+                header.classList.remove('header-hidden');
+                lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+                return;
+            }
+
+            // Ignora micro-movimentos
+            if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
+                return;
+            }
+
+            if (currentScrollY > lastScrollY) {
+                // Rola para baixo -> esconde
+                header.classList.add('header-hidden');
+            } else {
+                // Rola para cima -> mostra
+                header.classList.remove('header-hidden');
+            }
+
+            lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+        }, { passive: true });
+    }
+
     // =========================================
     // Botão Flutuante do WhatsApp com Múltiplas Regiões
     // =========================================
