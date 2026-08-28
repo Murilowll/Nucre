@@ -538,11 +538,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('.main-header');
     
+    // Cria ou seleciona o overlay de fundo
+    let mobileOverlay = document.querySelector('.mobile-menu-overlay');
+    if (!mobileOverlay && navLinks) {
+        mobileOverlay = document.createElement('div');
+        mobileOverlay.className = 'mobile-menu-overlay';
+        document.body.appendChild(mobileOverlay);
+    }
+
+    const closeMobileMenu = () => {
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('active');
+        if (mobileOverlay) mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    const openMobileMenu = () => {
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        if (navLinks) navLinks.classList.add('active');
+        if (mobileOverlay) mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
     if (mobileMenuToggle && navLinks) {
         mobileMenuToggle.addEventListener('click', () => {
-            mobileMenuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.contains('active');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
         });
+    }
+
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMobileMenu);
     }
 
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
@@ -550,10 +580,34 @@ document.addEventListener("DOMContentLoaded", () => {
         toggle.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
-                toggle.parentElement.classList.toggle('active');
+                e.stopPropagation();
+                const parent = toggle.parentElement;
+                const wasActive = parent.classList.contains('active');
+                
+                // Fecha outros dropdowns abertos no mobile (efeito sanfona limpo)
+                document.querySelectorAll('.nav-links .dropdown').forEach(d => {
+                    if (d !== parent) d.classList.remove('active');
+                });
+                
+                if (wasActive) {
+                    parent.classList.remove('active');
+                } else {
+                    parent.classList.add('active');
+                }
             }
         });
     });
+
+    // Fecha o menu ao clicar em qualquer link de navegação regular ou do submenu
+    if (navLinks) {
+        navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    }
 
     // =========================================
     // Botão Flutuante do WhatsApp com Múltiplas Regiões
@@ -584,7 +638,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <span class="btn-option-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
                                 <div class="btn-option-text">
                                     <strong>Itupeva e Indaiatuba</strong>
-                                    <span>Fisioterapia Home Care (Domiciliar)</span>
+                                    <span>Fisioterapia Domiciliar</span>
                                 </div>
                             </a>
                         </div>
