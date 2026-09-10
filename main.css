@@ -1212,12 +1212,14 @@ img { max-width: 100%; display: block; object-fit: cover; }
     position: absolute;
     top: 0;
     left: 0;
-    height: 150%; /* Força a imagem a ser mais alta que a seção para permitir o scroll vertical */
-    width: 150vw; /* Força a imagem a ser 50% mais larga que a tela */
-    object-fit: cover; /* Mantém a proporção sem achatar */
-    max-width: none; /* Ignora o reset global de img, permitindo que vaze da tela */
+    height: 100%;
+    width: auto;
+    min-width: calc(100% + 350px);
+    object-fit: cover;
+    max-width: none;
     will-change: transform;
-    pointer-events: none; /* Evita que o usuário arraste a imagem "fantasma" sem querer */
+    pointer-events: none;
+    user-select: none;
 }
 
 .panorama-overlay {

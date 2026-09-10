@@ -452,26 +452,42 @@ document.addEventListener("DOMContentLoaded", () => {
         if (panoramaImg.complete) { centerImage(); } 
         else { panoramaImg.addEventListener('load', centerImage); }
 
-        panoramaWrapper.addEventListener('mousemove', (e) => {
+        const handlePan = (clientX, clientY) => {
             const wrapperWidth = panoramaWrapper.offsetWidth;
             const wrapperHeight = panoramaWrapper.offsetHeight;
             const imgWidth = panoramaImg.offsetWidth;
             const imgHeight = panoramaImg.offsetHeight;
 
             const wrapperRect = panoramaWrapper.getBoundingClientRect();
-            const mouseX = e.clientX - wrapperRect.left;
-            const mouseY = e.clientY - wrapperRect.top;
+            const mouseX = clientX - wrapperRect.left;
+            const mouseY = clientY - wrapperRect.top;
             
             let translateX = 0;
             let translateY = 0;
 
-            if (imgWidth > wrapperWidth) translateX = (mouseX / wrapperWidth) * (imgWidth - wrapperWidth);
-            if (imgHeight > wrapperHeight) translateY = (mouseY / wrapperHeight) * (imgHeight - wrapperHeight);
+            if (imgWidth > wrapperWidth) {
+                translateX = (mouseX / wrapperWidth) * (imgWidth - wrapperWidth);
+                translateX = Math.max(0, Math.min(imgWidth - wrapperWidth, translateX));
+            }
+            if (imgHeight > wrapperHeight) {
+                translateY = (mouseY / wrapperHeight) * (imgHeight - wrapperHeight);
+                translateY = Math.max(0, Math.min(imgHeight - wrapperHeight, translateY));
+            }
 
-            // Movimento rápido e fluido acompanhando o mouse
+            // Movimento rápido e fluido acompanhando o cursor / toque
             panoramaImg.style.transition = 'transform 0.1s ease-out';
             panoramaImg.style.transform = `translate(-${translateX}px, -${translateY}px)`;
+        };
+
+        panoramaWrapper.addEventListener('mousemove', (e) => {
+            handlePan(e.clientX, e.clientY);
         });
+
+        panoramaWrapper.addEventListener('touchmove', (e) => {
+            if (e.touches && e.touches[0]) {
+                handlePan(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
         
         // Centraliza novamente quando o mouse sai
         panoramaWrapper.addEventListener('mouseleave', centerImage);
