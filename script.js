@@ -688,7 +688,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <span>Clínica no Planalto Paulista</span>
                                 </div>
                             </a>
-                            <a href="https://api.whatsapp.com/send?phone=5511973165620&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20domiciliar%20em%20Itupeva%20e%20Indaiatuba." target="_blank" class="whatsapp-btn-option">
+                            <a href="https://api.whatsapp.com/send?phone=5511924908586&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20domiciliar%20em%20Itupeva%20e%20Indaiatuba." target="_blank" class="whatsapp-btn-option">
                                 <span class="btn-option-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
                                 <div class="btn-option-text">
                                     <strong>Itupeva e Indaiatuba</strong>
