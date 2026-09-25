@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'fisioterapia-esportiva': {
             title: 'Reabilitação de Lesões Esportivas',
             description: 'Seja você um atleta profissional de alto rendimento ou um praticante de atividades físicas recreativas, nossa equipe está preparada para acelerar o seu retorno seguro ao esporte (return-to-play). Atuamos na fase aguda e crônica de lesões musculares, tendíneas e ligamentares, associando o manejo da dor ao restabelecimento da potência, flexibilidade e estabilidade articular.',
-            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.35 (1).jpeg',
+            image: 'assets/img/services/fisioterapia-esportiva.jpg',
             benefits: [
                 'Acelera o tempo de recuperação dos músculos, ligamentos, tendões e outras partes do corpo',
                 'Reduz significativamente a dor e processos inflamatórios',
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'pos-operatorios-complexos': {
             title: 'Pós-Operatórios Complexos',
             description: 'A reabilitação pós-cirúrgica (ortopédica e traumatológica) exige precisão cronológica para respeitar os tempos biológicos de cicatrização tecidual. Atendemos pacientes pós-artroscopias, reconstruções ligamentares (como LCA), artroplastias (próteses), cirurgias de coluna e diversos outros tipos de cirurgias; minimizando aderências cicatriciais, controlando o processo inflamatório e devolvendo a funcionalidade plena de forma gradual e segura.',
-            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34 (2).jpeg',
+            image: 'assets/img/services/pos-operatorio.jpg',
             benefits: [
                 'Respeito rigoroso aos tempos biológicos de cicatrização tecidual',
                 'Prevenção e eliminação de aderências cicatriciais e contraturas musculares',
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'qualidade-de-vida': {
             title: 'Longevidade e Qualidade de Vida',
             description: 'A fisioterapia vai muito além do tratamento da dor aguda; ela é uma ferramenta de preservação funcional. Desenvolvemos programas focados na melhoria da mobilidade, alívio de tensões crônicas, correção de desequilíbrios biomecânicos e prevenção de lesões, permitindo que nossos pacientes desfrutem de uma rotina ativa, independente e com máxima vitalidade.',
-            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34 (3).jpeg',
+            image: 'assets/img/services/qualidade-de-vida.jpg',
             benefits: [
                 'Aumento expressivo da mobilidade articular e flexibilidade muscular',
                 'Alívio duradouro de dores e tensões crônicas no corpo',
@@ -131,13 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         'reabilitacao-com-eletroterapia': {
             title: 'Reabilitação com Eletroterapia',
-            description: 'A Eletroterapia atua principalmente no tratamento de dores musculares crônicas, atrofia muscular, recuperação de massa muscular e da função dos nervos, lombalgia, tendinite, fibrose e processos inflamatórios, além de reduzir o ácido lático em 25% através de estímulos elétricos. No NUCRE, utilizamos o Compex Wireless, um equipamento suíço de ponta sem fio que estimula diretamente o neurônio motor para acelerar o ganho de força e a cicatrização dos tecidos de forma extremamente eficiente.',
+            description: 'A reabilitação com eletroterapia utiliza correntes elétricas de baixa ou média frequência aplicadas sobre a pele para acelerar a recuperação neuro-musculoesquelética. É uma ferramenta complementar e não invasiva, amplamente aplicada na fisioterapia para restaurar a mobilidade e a função motora.',
             image: 'assets/img/services/placeholder-green.svg',
             benefits: [
-                'Fortalecimento muscular e ativação motora acelerada',
-                'Redução rápida de dores agudas e crônicas',
-                'Aceleração da regeneração celular e redução de inchaços',
-                'Redução do acúmulo de ácido lático pós-esforço'
+                'Alívio da dor: Bloqueia os sinais dolorosos enviados ao cérebro e estimula a liberação de endorfinas (ex.: TENS).',
+                'Fortalecimento muscular: estimula a contração voluntária ou involuntária para reativar e fortalecer músculos atrofiados ou enfraquecidos (ex.: FES e Corrente Russa)',
+                'Redução de edema e inflamação: Melhora a circulação sanguínea e linfática local, acelerando o processo de cicatrização dos tecidos.'
             ],
             faqs: [
                 { q: 'Em quais casos a eletroterapia é indicada?', a: 'É indicada para pós-operatórios (especialmente de joelho para estimular o quadríceps), fraqueza muscular, fadiga crônica, luxações e traumas ósseos ou articulares.' },
@@ -152,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 'Liberação miofascial profunda e restauração da fáscia muscular',
                 'Aumento da circulação e oxigenação sanguínea no local lesionado',
                 'Quebra de aderências teciduais e restauração rápida da mobilidade',
-                'Combate e liberação de pontos gatilho profundos'
+                'Liberação de pontos gatilhos'
             ],
             faqs: [
                 { q: 'Quais técnicas instrumentais são utilizadas?', a: 'O NUCRE conta com técnicas altamente consolidadas como Dry Needling (Agulhamento a seco), Miofibrólise Percutânea e Ventosaterapia.' },
@@ -247,13 +246,13 @@ document.addEventListener("DOMContentLoaded", () => {
             faqs: [
                 { q: 'Por que ficam manchas roxas na pele?', a: 'A sucção rompe pequenos vasos sanguíneos superficiais (capilares), causando um leve extravasamento de sangue sob a pele (equimose). Na visão da medicina ocidental, isso estimula uma resposta inflamatória local controlada, ativando o sistema de cura do próprio corpo. Na medicina chinesa, a cor indica o nível de estagnação de energia (Qi) e sangue. Elas costumam sumir sozinhas entre 3 e 7 dias.' },
                 { q: 'Quais são as principais indicações da ventosaterapia?', a: 'Dores nas costas (lombalgia, cervicalgia), tensão muscular e contraturas acumuladas por estresse ou treino pesado, recuperação muscular pós-exercício (recovery) e melhora na flexibilidade.' },
-                { q: 'Quais são as contraindicações?', a: 'A técnica é segura, mas não deve ser aplicada em pessoas com distúrbios de coagulação ou anticoagulantes, regiões com feridas abertas, dermatites, queimaduras ou varizes expostas, mulheres grávidas (especialmente no abdômen e lombar), e pessoas com febre ou infecções agudas.' }
+                { q: 'Quais são as contraindicações?', a: 'A técnica é segura, mas não deve ser aplicada em pessoas com distúrbios de coagulação, regiões com feridas abertas, dermatites, queimaduras ou varizes expostas, mulheres grávidas (especialmente no abdômen e lombar), e pessoas com febre ou infecções agudas.' }
             ]
         },
         'miofibrolise-percutanea': {
             title: 'Miofibrólise Percutânea',
             description: 'A Miofibrólise Percutânea, popularmente conhecida como Crochetagem Mioaponeurótica ou Diafibrólise Percutânea, é uma técnica de terapia manual instrumentalizada. Desenvolvida na década de 1970 pelo fisioterapeuta sueco Kurt Ekman (colaborador do Dr. James Cyriax), ela surgiu da percepção de que os dedos humanos muitas vezes não alcançam a profundidade necessária ou não isolam com precisão as restrições entre as camadas de tecidos. Para isso, utilizam-se ganchos (crochets) de aço inoxidável ou poliamida com curvaturas e tamanhos variados.',
-            image: 'assets/img/services/placeholder-green.svg',
+            image: 'assets/img/services/miofibrolise-percutanea.jpg',
             benefits: [
                 'Efeito Mecânico: Rompe fibras colágenas desorganizadas e cicatrizes que grudam um músculo no outro, devolvendo o deslizamento fisiológico entre as fáscias.',
                 'Efeito Circulatório: Gera uma hiperemia profunda (aumento do fluxo sanguíneo local) e estimula a circulação linfática, acelerando a reabsorção de edemas.',
@@ -284,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'dry-needling': {
             title: 'Dry Needling',
             description: 'O Dry Needling (ou agulhamento a seco) é uma técnica que utiliza agulhas ultrafinas — idênticas às da acupuntura — para desativar pontos-gatilho (trigger points), que são aqueles nós rígidos e dolorosos que se formam nos músculos tensionados. Ao contrário da acupuntura tradicional, o dry needling se baseia puramente na anatomia humana e na neurofisiologia. A agulha penetra na pele até o músculo para quebrar esse ciclo de dor, gerando uma resposta de relaxamento muscular quase imediata.',
-            image: 'assets/img/services/placeholder-green.svg',
+            image: 'assets/img/services/dry-needling.jpg',
             benefits: [
                 'Desativação rápida de pontos-gatilho (trigger points) e nós de tensão muscular.',
                 'Alívio imediato e duradouro de dores miofasciais e torcicolos.',
@@ -305,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 'Melhora significativa da coordenação motora e do equilíbrio corporal',
                 'Ganho rápido de força muscular através de facilitação proprioceptiva',
                 'Estabilização articular dinâmica e melhora do controle postural',
-                'Restauração de padrões funcionais de movimento no dia a dia'
+                'Restauração de padrões funcionais de movimentos no dia a dia'
             ],
             faqs: [
                 { q: 'O que significa Facilitação Neuromuscular Proprioceptiva?', a: 'Proprioceptiva refere-se aos receptores sensoriais internos que informam o corpo sobre sua posição e movimento; Neuromuscular envolve a interação entre nervos e músculos; e Facilitação significa tornar o movimento mais fácil e coordenado.' },
@@ -315,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'liberacoes-miofasciais': {
             title: 'Liberações Miofasciais',
             description: 'A Liberação Miofascial é uma técnica manual altamente especializada que foca na fáscia muscular (o tecido conjuntivo que envolve e conecta todos os músculos e órgãos). Através de pressões manuais lentas e direcionadas, o terapeuta elimina restrições fasciais, desfaz aderências e desativa pontos-gatilho dolorosos. O resultado é o alívio imediato da tensão muscular, melhora da circulação local e restauração completa da amplitude de movimento.',
-            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.33 (1).jpeg',
+            image: 'assets/img/services/liberacao-miofascial.jpg',
             benefits: [
                 'Alívio imediato de tensões musculares agudas e crônicas',
                 'Restauração da flexibilidade e da elasticidade da fáscia',
@@ -879,14 +878,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 const thumbs = document.querySelectorAll(".team-thumbnails img");
-                const members = ["elton", "ricardo", "andre", "fabio", "joice"];
+                const members = ["elton", "ricardo", "andre", "fabio", "joyce"];
                 members.forEach((m, idx) => {
-                    if (thumbs[idx] && data.team[m]) {
-                        if (data.team[m].role) thumbs[idx].setAttribute("data-role", data.team[m].role);
-                        if (data.team[m].bio) thumbs[idx].setAttribute("data-bio", data.team[m].bio);
-                        if (data.team[m].img) {
-                            thumbs[idx].setAttribute("data-image", data.team[m].img);
-                            thumbs[idx].src = data.team[m].img;
+                    const memberData = data.team[m] || (m === "joyce" ? data.team["joice"] : null);
+                    if (thumbs[idx] && memberData) {
+                        if (memberData.role) thumbs[idx].setAttribute("data-role", memberData.role);
+                        if (memberData.bio) thumbs[idx].setAttribute("data-bio", memberData.bio);
+                        if (memberData.img) {
+                            thumbs[idx].setAttribute("data-image", memberData.img);
+                            thumbs[idx].src = memberData.img;
                         }
                     }
                 });
