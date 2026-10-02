@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=3">
     <link rel="shortcut icon" href="favicon.ico?v=3">
     
-    <link rel="stylesheet" href="main.css?v=2.5">
+    <link rel="stylesheet" href="main.css?v=2.6">
 </head>
 <body>
 
@@ -37,8 +37,6 @@
                             <li><a href="servicos.html#fisioterapia-esportiva">Fisioterapia esportiva</a></li>
                             <li><a href="servicos.html#qualidade-de-vida">Qualidade de vida</a></li>
                             <li><a href="servicos.html#prevencao-de-lesoes">Prevenção de lesões</a></li>
-                            <li><a href="servicos.html#reabilitacao-com-eletroterapia">Reabilitação com eletroterapia</a></li>
-                            <li><a href="servicos.html#reabilitacao-com-instrumentos">Reabilitação com instrumentos</a></li>
                             <li><a href="servicos.html#recovery">Recovery</a></li>
                             <li><a href="servicos.html#ventosaterapia">Ventosaterapia</a></li>
                             <li><a href="servicos.html#miofibrolise-percutanea">Miofibrólise percutânea</a></li>
@@ -68,7 +66,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Clínica Nucre</h1>
-                <p class="subtitle">Referência em Fisioterapia Avançada e Cuidado Individualizado.</p>
+                <p class="subtitle">Referência em Fisioterapia Esportiva Avançada e Cuidado Individualizado.</p>
                 <p class="hero-desc">Há 16 anos, a Clinica consolida sua história como um centro de excelência em reabilitação física e promoção do bem-estar.</p>
                 <div class="hero-buttons">
                     <a href="contato.html" class="btn btn-primary">Agendar Avaliação</a>
@@ -487,13 +485,68 @@
         </div>
     </section>
 
-    <section class="panorama reveal" style="padding: 0;">
+    <section class="panorama reveal" id="panorama-section" style="padding: 0;">
+        <!-- Cabeçalho visível exclusivamente no Mobile -->
+        <div class="panorama-header-mobile">
+            <span class="panorama-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M2 12h20"/></svg>
+                Tour Virtual 360°
+            </span>
+            <h2>Conheça Nossa Estrutura</h2>
+            <p>Deslize para os lados para explorar todos os ambientes da clínica</p>
+        </div>
+
         <div class="panorama-wrapper" id="panorama-wrapper">
-            <div class="panorama-overlay">
+            <!-- Overlay exclusivo para Desktop -->
+            <div class="panorama-overlay desktop-only">
                 <h2>Conheça Nossa Estrutura</h2>
                 <p>Passe o mouse horizontalmente para explorar a clínica em 360º</p>
             </div>
-            <img src="assets/img/clinic-panorama.jpg" alt="Panorama da Clínica Nucre" class="panorama-img" id="panorama-img">
+            
+            <!-- Badge guia discreto que esmaece no mobile ao interagir -->
+            <div class="panorama-badge-mobile" id="panorama-badge-mobile">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/><path d="m9 18-6-6 6-6"/></svg>
+                <span>Arraste para explorar</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
+            </div>
+
+            <div class="panorama-scroll-area" id="panorama-scroll-area">
+                <img src="assets/img/clinic-panorama.jpg" alt="Panorama da Clínica Nucre" class="panorama-img" id="panorama-img">
+            </div>
+        </div>
+
+        <!-- Controles exclusivos para Mobile posicionados abaixo da foto -->
+        <div class="panorama-mobile-controls">
+            <button type="button" class="pano-btn pano-btn-prev" id="pano-btn-prev" aria-label="Deslizar para a esquerda">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="pano-progress-wrapper" id="pano-progress-wrapper" title="Toque para navegar">
+                <div class="pano-progress-bar" id="pano-progress-bar"></div>
+            </div>
+            <button type="button" class="pano-btn pano-btn-next" id="pano-btn-next" aria-label="Deslizar para a direita">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <button type="button" class="pano-btn pano-btn-expand" id="pano-btn-expand" aria-label="Expandir foto em tela cheia">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </button>
+        </div>
+
+        <!-- Modal Tela Cheia do Panorama para Mobile -->
+        <div class="panorama-modal" id="panorama-modal" aria-hidden="true">
+            <div class="panorama-modal-overlay" id="panorama-modal-overlay"></div>
+            <div class="panorama-modal-content">
+                <div class="panorama-modal-header">
+                    <span>Clínica Nucre • Tour 360°</span>
+                    <button type="button" class="panorama-modal-close" id="panorama-modal-close" aria-label="Fechar">&times;</button>
+                </div>
+                <div class="panorama-modal-body" id="panorama-modal-body">
+                    <img src="assets/img/clinic-panorama.jpg" alt="Panorama da Clínica Nucre Expandido" class="panorama-modal-img" id="panorama-modal-img">
+                </div>
+                <div class="panorama-modal-hint">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/><path d="m9 18 6-6-6-6"/></svg>
+                    Arraste para os lados para navegar por toda a clínica
+                </div>
+            </div>
         </div>
     </section>
 
@@ -542,6 +595,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2.6"></script>
 </body>
 </html>

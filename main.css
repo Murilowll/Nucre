@@ -1435,6 +1435,20 @@ img { max-width: 100%; display: block; object-fit: cover; }
     overflow: hidden;
 }
 
+.panorama-scroll-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.panorama-header-mobile,
+.panorama-badge-mobile,
+.panorama-mobile-controls,
+.panorama-modal {
+    display: none;
+}
+
 .panorama-img {
     position: absolute;
     top: 0;
@@ -2386,12 +2400,297 @@ img { max-width: 100%; display: block; object-fit: cover; }
     body { padding-top: 75px; }
     .main-header { height: 75px; }
     .logo img { max-height: 58px; }
-    .panorama-overlay {
-        bottom: 1.5rem;
-        left: 1.5rem;
-        width: calc(100% - 3rem);
+    /* Panorama Mobile: Desobstruído e Interativo */
+    .desktop-only {
+        display: none !important;
     }
-    .panorama-overlay h2 { font-size: 1.8rem; }
+
+    .panorama {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        background: #0a1329;
+    }
+
+    .panorama-header-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2.2rem 1.25rem 1.2rem;
+        background: linear-gradient(180deg, #070d1e 0%, #0a1329 100%);
+    }
+
+    .panorama-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent-cyan);
+        background: rgba(0, 240, 255, 0.08);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        padding: 5px 12px;
+        border-radius: 20px;
+        margin-bottom: 0.6rem;
+    }
+
+    .panorama-header-mobile h2 {
+        font-size: 1.6rem;
+        color: #ffffff;
+        margin-bottom: 0.35rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .panorama-header-mobile p {
+        font-size: 0.92rem;
+        color: #94a3b8;
+        max-width: 320px;
+        margin: 0 auto;
+        line-height: 1.4;
+    }
+
+    .panorama-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        cursor: default;
+    }
+
+    .panorama-scroll-area {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        position: relative;
+        touch-action: pan-x pan-y;
+        cursor: grab;
+    }
+
+    .panorama-scroll-area::-webkit-scrollbar {
+        display: none;
+    }
+
+    .panorama-scroll-area.is-dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
+        user-select: none;
+    }
+
+    .panorama-scroll-area .panorama-img {
+        position: relative;
+        height: 350px;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+        display: block;
+        object-fit: cover;
+        pointer-events: auto;
+        transform: none !important;
+    }
+
+    .panorama-badge-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 15;
+        background: rgba(10, 19, 41, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        border-radius: 24px;
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        animation: panoBadgePulse 2.4s infinite;
+        white-space: nowrap;
+    }
+
+    .panorama-badge-mobile.is-hidden {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+        pointer-events: none;
+    }
+
+    @keyframes panoBadgePulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.45);
+        }
+        50% {
+            box-shadow: 0 0 0 7px rgba(0, 240, 255, 0);
+        }
+    }
+
+    .panorama-mobile-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 1.1rem 1.25rem 2rem;
+        background: #0a1329;
+    }
+
+    .pano-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .pano-btn:active {
+        background: var(--primary-blue);
+        border-color: var(--accent-cyan);
+        transform: scale(0.92);
+    }
+
+    .pano-btn-expand {
+        border-radius: 12px;
+        width: 44px;
+        height: 44px;
+        color: var(--accent-cyan);
+        border-color: rgba(0, 240, 255, 0.35);
+        background: rgba(0, 240, 255, 0.06);
+    }
+
+    .pano-progress-wrapper {
+        flex: 1;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        padding: 1px;
+    }
+
+    .pano-progress-bar {
+        height: 100%;
+        width: 32%;
+        background: linear-gradient(90deg, #2563eb, var(--accent-cyan));
+        border-radius: 6px;
+        box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+        transition: transform 0.1s linear;
+    }
+
+    /* Modal Tela Cheia */
+    .panorama-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+    }
+
+    .panorama-modal.is-open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .panorama-modal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(5, 10, 22, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .panorama-modal-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .panorama-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .panorama-modal-close {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s;
+    }
+
+    .panorama-modal-close:active {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .panorama-modal-body {
+        flex: 1;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        align-items: center;
+        scrollbar-width: none;
+        padding: 1rem 0;
+        cursor: grab;
+    }
+
+    .panorama-modal-body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .panorama-modal-img {
+        height: 65vh;
+        width: auto;
+        max-width: none;
+        display: block;
+        user-select: none;
+    }
+
+    .panorama-modal-hint {
+        padding: 0.75rem 1rem 1.5rem;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
     
     .navbar { position: relative; }
     .mobile-menu-toggle {

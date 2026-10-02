@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'prevencao-de-lesoes': {
             title: 'Prevenção de Lesões',
             description: 'Qualquer tipo de lesão, além de causar um grande desconforto para o paciente, pode deixar a pessoa afastada de suas atividades diárias por semanas ou meses, impactando a saúde física e emocional. A prevenção é a melhor forma de manter-se ativo e saudável por muito mais tempo. O trabalho de prevenção de lesões do NUCRE se inicia por meio de uma avaliação terapêutica completa e com uma elaboração de exercícios específicos para as principais articulações e grupos musculares exigidos na sua rotina.',
-            image: 'assets/img/services/placeholder-green.svg',
+            image: 'assets/img/services/prevencao-de-lesoes.jpg',
             benefits: [
                 'Relaxa profundamente a musculatura e alivia pontos de tensão',
                 'Aumenta a flexibilidade, a mobilidade e a disposição geral',
@@ -129,39 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 { q: 'Como funciona o programa de exercícios?', a: 'Iniciamos com uma avaliação completa e prescrevemos exercícios específicos que visam corrigir desequilíbrios, fortalecer áreas de sobrecarga e relaxar a musculatura.' }
             ]
         },
-        'reabilitacao-com-eletroterapia': {
-            title: 'Reabilitação com Eletroterapia',
-            description: 'A reabilitação com eletroterapia utiliza correntes elétricas de baixa ou média frequência aplicadas sobre a pele para acelerar a recuperação neuro-musculoesquelética. É uma ferramenta complementar e não invasiva, amplamente aplicada na fisioterapia para restaurar a mobilidade e a função motora.',
-            image: 'assets/img/services/placeholder-green.svg',
-            benefits: [
-                'Alívio da dor: Bloqueia os sinais dolorosos enviados ao cérebro e estimula a liberação de endorfinas (ex.: TENS).',
-                'Fortalecimento muscular: estimula a contração voluntária ou involuntária para reativar e fortalecer músculos atrofiados ou enfraquecidos (ex.: FES e Corrente Russa)',
-                'Redução de edema e inflamação: Melhora a circulação sanguínea e linfática local, acelerando o processo de cicatrização dos tecidos.'
-            ],
-            faqs: [
-                { q: 'Em quais casos a eletroterapia é indicada?', a: 'É indicada para pós-operatórios (especialmente de joelho para estimular o quadríceps), fraqueza muscular, fadiga crônica, luxações e traumas ósseos ou articulares.' },
-                { q: 'Existem contraindicações?', a: 'Sim. É contraindicada para gestantes, portadores de marca-passo, próteses metálicas no local, trombose venosa, feridas abertas ou alterações de sensibilidade térmica.' }
-            ]
-        },
-        'reabilitacao-com-instrumentos': {
-            title: 'Reabilitação com Instrumentos',
-            description: 'A reabilitação com instrumentos utiliza ferramentas especializadas para realizar tratamentos profundos e direcionados nos tecidos moles, acelerando o reparo tecidual, liberando aderências miofasciais e estimulando o fluxo sanguíneo local. Essa modalidade é essencial para reabilitar restrições de movimento e aliviar dores persistentes através de técnicas de fisioterapia instrumental avançadas.',
-            image: 'assets/img/services/placeholder-green.svg',
-            benefits: [
-                'Liberação miofascial profunda e restauração da fáscia muscular',
-                'Aumento da circulação e oxigenação sanguínea no local lesionado',
-                'Quebra de aderências teciduais e restauração rápida da mobilidade',
-                'Liberação de pontos gatilhos'
-            ],
-            faqs: [
-                { q: 'Quais técnicas instrumentais são utilizadas?', a: 'O NUCRE conta com técnicas altamente consolidadas como Dry Needling (Agulhamento a seco), Miofibrólise Percutânea e Ventosaterapia.' },
-                { q: 'Como essas técnicas auxiliam na reabilitação?', a: 'Elas agem diretamente sobre as fibras musculares e tecidos fasciais rígidos que limitam o movimento, promovendo um relaxamento imediato e acelerando a cura natural.' }
-            ]
-        },
         'recovery': {
             title: 'Recovery',
             description: 'As botas pneumáticas por compressão (Recovery) são um excelente recurso para ajudar atletas na recuperação de lesões ou reabilitação de cirurgias. Através de compressão sequencial por ar comprimido em pernas, braços e quadris, o tratamento estimula o fluxo de sangue, remove metabólitos e acelebra drasticamente o restabelecimento da performance esportiva de alto nível.',
-            image: 'assets/img/services/placeholder-green.svg',
+            image: 'assets/img/services/recovery.jpg',
             benefits: [
                 'Estimulação profunda do retorno venoso e melhora da circulação',
                 'Redução de edemas e inchaços provocados por microlesões de treinos',
@@ -206,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'maitland': {
             title: 'Maitland',
             description: 'O Método Maitland (ou Conceito Maitland) é uma das abordagens mais respeitadas e utilizadas na fisioterapia manual ortopédica no mundo. Criado na década de 1960, o método foca na avaliação minuciosa e no tratamento de disfunções da coluna vertebral e das articulações periféricas (braços e pernas) através de movimentos passivos oscilatórios graduados, promovendo alívio da dor e ganho de amplitude de movimento.',
-            image: 'assets/img/services/WhatsApp Image 2026-08-13 at 17.31.34.jpeg',
+            image: 'assets/img/services/maitland.jpg',
             benefits: [
                 'Alívio de dores agudas e crônicas na coluna vertebral e articulações',
                 'Ganho rápido de amplitude de movimento e alongamento de ligamentos rígidos',
@@ -236,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'ventosaterapia': {
             title: 'Ventosaterapia',
             description: 'A Ventosaterapia é uma técnica milenar que utiliza copos (ventosas) sobre a pele para criar um vácuo. Esse vácuo gera uma força de sucção que puxa a pele e os tecidos musculares superficiais para dentro do copo. Embora seja muito associada à Medicina Tradicional Chinesa, a técnica também era usada no Antigo Egito e na Grécia Antiga. Hoje, ela é amplamente utilizada por fisioterapeutas, massoterapeutas e atletas para alívio de dores musculares e melhora da circulação.',
-            image: 'assets/img/services/placeholder-green.svg',
+            image: 'assets/img/services/ventosaterapia.jpg',
             benefits: [
                 'Aumento da circulação local: A sucção dilata os vasos sanguíneos, trazendo mais sangue oxigenado e nutrientes para a área tratada.',
                 'Liberação miofascial: O vácuo ajuda a "descolar" e relaxar a fáscia (a capa de tecido conjuntivo que envolve os músculos), reduzindo a rigidez e a tensão.',
@@ -299,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'kabat': {
             title: 'Kabat',
             description: 'O Método Kabat, também conhecido como Facilitação Neuromuscular Proprioceptiva (FNP), é uma abordagem terapêutica que utiliza padrões de movimentos diagonais e espirais associados a estímulos sensoriais (táteis, visuais e verbais). O objetivo é facilitar e melhorar a resposta neuromuscular, promovendo o ganho de força, flexibilidade, coordenação e estabilidade articular. É amplamente indicado tanto na reabilitação neurológica quanto na ortopédica.',
-            image: 'assets/img/services/placeholder-green.svg',
+            image: 'assets/img/services/kabat.jpg',
             benefits: [
                 'Melhora significativa da coordenação motora e do equilíbrio corporal',
                 'Ganho rápido de força muscular através de facilitação proprioceptiva',
@@ -425,13 +396,28 @@ document.addEventListener("DOMContentLoaded", () => {
     loadServiceFromHash();
 
     // =========================================
-    // Lógica da Seção Panorama (Imagens largas com hover)
+    // Lógica da Seção Panorama (Desktop Hover & Mobile Touch)
     // =========================================
     const panoramaWrapper = document.getElementById('panorama-wrapper');
     const panoramaImg = document.getElementById('panorama-img');
+    const scrollArea = document.getElementById('panorama-scroll-area');
+    const btnPrev = document.getElementById('pano-btn-prev');
+    const btnNext = document.getElementById('pano-btn-next');
+    const progressBar = document.getElementById('pano-progress-bar');
+    const progressWrapper = document.getElementById('pano-progress-wrapper');
+    const badgeMobile = document.getElementById('panorama-badge-mobile');
+    const btnExpand = document.getElementById('pano-btn-expand');
+    const modal = document.getElementById('panorama-modal');
+    const modalClose = document.getElementById('panorama-modal-close');
+    const modalOverlay = document.getElementById('panorama-modal-overlay');
+    const modalBody = document.getElementById('panorama-modal-body');
 
     if (panoramaWrapper && panoramaImg) {
-        const centerImage = () => {
+        const isMobile = () => window.innerWidth <= 768;
+
+        // Desktop: Centralizar e seguir mouse
+        const centerImageDesktop = () => {
+            if (isMobile()) return;
             const wrapperWidth = panoramaWrapper.offsetWidth;
             const wrapperHeight = panoramaWrapper.offsetHeight;
             const imgWidth = panoramaImg.offsetWidth;
@@ -447,11 +433,8 @@ document.addEventListener("DOMContentLoaded", () => {
             panoramaImg.style.transform = `translate(-${translateX}px, -${translateY}px)`;
         };
 
-        // Centraliza assim que a imagem for carregada
-        if (panoramaImg.complete) { centerImage(); } 
-        else { panoramaImg.addEventListener('load', centerImage); }
-
-        const handlePan = (clientX, clientY) => {
+        const handlePanDesktop = (clientX, clientY) => {
+            if (isMobile()) return;
             const wrapperWidth = panoramaWrapper.offsetWidth;
             const wrapperHeight = panoramaWrapper.offsetHeight;
             const imgWidth = panoramaImg.offsetWidth;
@@ -473,25 +456,166 @@ document.addEventListener("DOMContentLoaded", () => {
                 translateY = Math.max(0, Math.min(imgHeight - wrapperHeight, translateY));
             }
 
-            // Movimento rápido e fluido acompanhando o cursor / toque
             panoramaImg.style.transition = 'transform 0.1s ease-out';
             panoramaImg.style.transform = `translate(-${translateX}px, -${translateY}px)`;
         };
 
         panoramaWrapper.addEventListener('mousemove', (e) => {
-            handlePan(e.clientX, e.clientY);
+            handlePanDesktop(e.clientX, e.clientY);
         });
 
-        panoramaWrapper.addEventListener('touchmove', (e) => {
-            if (e.touches && e.touches[0]) {
-                handlePan(e.touches[0].clientX, e.touches[0].clientY);
+        panoramaWrapper.addEventListener('mouseleave', () => {
+            if (!isMobile()) centerImageDesktop();
+        });
+
+        // Mobile: Controles e Scroll nativo suave
+        const updateProgressBar = () => {
+            if (!scrollArea || !progressBar) return;
+            const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
+            if (maxScroll <= 0) {
+                progressBar.style.transform = 'translateX(0)';
+                return;
             }
-        }, { passive: true });
-        
-        // Centraliza novamente quando o mouse sai
-        panoramaWrapper.addEventListener('mouseleave', centerImage);
-        // Garante centralização ao redimensionar a tela
-        window.addEventListener('resize', centerImage);
+            const scrollFraction = Math.max(0, Math.min(1, scrollArea.scrollLeft / maxScroll));
+            const wrapperW = progressWrapper ? progressWrapper.offsetWidth : 100;
+            const barW = progressBar.offsetWidth || (wrapperW * 0.32);
+            const maxTravel = wrapperW - barW;
+            const translateX = scrollFraction * maxTravel;
+            progressBar.style.transform = `translateX(${translateX}px)`;
+        };
+
+        const centerImageMobile = () => {
+            if (!scrollArea) return;
+            const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
+            if (maxScroll > 0) {
+                scrollArea.scrollLeft = maxScroll / 2;
+                updateProgressBar();
+            }
+        };
+
+        const onImageReady = () => {
+            if (isMobile()) {
+                centerImageMobile();
+            } else {
+                centerImageDesktop();
+            }
+        };
+
+        if (panoramaImg.complete) {
+            onImageReady();
+        } else {
+            panoramaImg.addEventListener('load', onImageReady);
+        }
+
+        window.addEventListener('resize', () => {
+            if (isMobile()) {
+                updateProgressBar();
+            } else {
+                centerImageDesktop();
+            }
+        });
+
+        if (scrollArea) {
+            let hasInteracted = false;
+            const hideBadge = () => {
+                if (!hasInteracted && badgeMobile) {
+                    hasInteracted = true;
+                    badgeMobile.classList.add('is-hidden');
+                }
+            };
+
+            scrollArea.addEventListener('scroll', () => {
+                hideBadge();
+                updateProgressBar();
+            }, { passive: true });
+
+            scrollArea.addEventListener('touchstart', hideBadge, { passive: true });
+            scrollArea.addEventListener('mousedown', hideBadge);
+
+            // Drag com mouse no desktop caso o usuário queira arrastar
+            let isDown = false;
+            let startX, scrollLeftVal;
+
+            scrollArea.addEventListener('mousedown', (e) => {
+                if (!isMobile()) return;
+                isDown = true;
+                scrollArea.classList.add('is-dragging');
+                startX = e.pageX - scrollArea.offsetLeft;
+                scrollLeftVal = scrollArea.scrollLeft;
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (isDown) {
+                    isDown = false;
+                    if (scrollArea) scrollArea.classList.remove('is-dragging');
+                }
+            });
+
+            scrollArea.addEventListener('mousemove', (e) => {
+                if (!isDown || !isMobile()) return;
+                e.preventDefault();
+                const x = e.pageX - scrollArea.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                scrollArea.scrollLeft = scrollLeftVal - walk;
+            });
+        }
+
+        // Botões de navegação lateral
+        if (btnPrev && scrollArea) {
+            btnPrev.addEventListener('click', () => {
+                if (badgeMobile) badgeMobile.classList.add('is-hidden');
+                scrollArea.scrollBy({ left: -240, behavior: 'smooth' });
+            });
+        }
+
+        if (btnNext && scrollArea) {
+            btnNext.addEventListener('click', () => {
+                if (badgeMobile) badgeMobile.classList.add('is-hidden');
+                scrollArea.scrollBy({ left: 240, behavior: 'smooth' });
+            });
+        }
+
+        // Clique na barra de progresso para pular para a posição
+        if (progressWrapper && scrollArea) {
+            progressWrapper.addEventListener('click', (e) => {
+                const rect = progressWrapper.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const fraction = Math.max(0, Math.min(1, clickX / rect.width));
+                const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
+                scrollArea.scrollTo({ left: fraction * maxScroll, behavior: 'smooth' });
+            });
+        }
+
+        // Modal Tela Cheia
+        if (btnExpand && modal) {
+            btnExpand.addEventListener('click', () => {
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                if (modalBody) {
+                    setTimeout(() => {
+                        const maxModalScroll = modalBody.scrollWidth - modalBody.clientWidth;
+                        if (maxModalScroll > 0) modalBody.scrollLeft = maxModalScroll / 2;
+                    }, 50);
+                }
+            });
+        }
+
+        const closeModal = () => {
+            if (modal) {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        };
+
+        if (modalClose) modalClose.addEventListener('click', closeModal);
+        if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+                closeModal();
+            }
+        });
     }
 
     // =========================================
